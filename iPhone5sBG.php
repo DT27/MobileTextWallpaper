@@ -99,6 +99,8 @@
 				// 生成一个以最大边长度为大小的是目标图像$ratio比例的临时图像
 				// 定义一个新的图像
 				$new_img=imagecreatetruecolor($new_width,$new_height);
+				
+				
 				imagecopyresampled($new_img,$inter_img,0,0,0,0,$new_width,$new_height,$inter_w,$inter_h);
 				return $new_img;
 			} // end if 1
@@ -114,7 +116,13 @@
 				imagecopyresampled($inter_img,$src_img,0,0,0,0,$inter_w,$inter_h,$w,$h);
 				// 定义一个新的图像
 				$new_img=imagecreatetruecolor($new_width,$new_height);
-				imagecopy($new_img, $inter_img, 0,0,0,0,$new_width,$new_height);
+				
+				$sw=imagesx($inter_img);
+				$sh=imagesy($inter_img);
+				if($new_width<$sw)
+					imagecopy($new_img, $inter_img, 0,0,($sw-$new_width)/2,0,$new_width,$new_height);
+				else
+					imagecopy($new_img, $inter_img, 0,0,0,0,$new_width,$new_height);
 				return $new_img;
 			}// if3
 		}// end function
@@ -318,17 +326,15 @@
 					case 13780:
 						$image = imagecreatefrompng ( $this->bgImg );
 						break;
+					default:
+						$image = imagecreatefrompng ( $this->bgImg );
+					break;
 				}
 				break;
 			}
-
+			$image = $base->resizeImage($image,640,1136);
 			$pic_width = imagesx($image);
 			$pic_height = imagesy($image);
-			if($pic_width!=744||$pic_height!=1392){
-				$image = $base->resizeImage($image,640,1136);
-				$pic_width = imagesx($image);
-				$pic_height = imagesy($image);
-			}
 			//定义颜色
 			$textColors = $base->hex2rgb($this->colorTText);
 			$textColor = ImageColorAllocate ( $image, $textColors['r'], $textColors['g'], $textColors['b']);
@@ -351,13 +357,13 @@
 				}
 				$srcimLogo = imagecreatefrompng($imgSrcLogo);
 				$srcImgLogo_w = imagesx($srcimLogo);
-				if($pic_width!=744||$pic_height!=1392){
-					$dst_x=195-52;
-					$dst_y=440-128;
-				}else{
-					$dst_x=195;
-					$dst_y=440;
-				}
+				//if($pic_width!=744||$pic_height!=1392){
+				//	$dst_x=195-52;
+				//	$dst_y=440-128;
+				//}else{
+				$dst_x=195;
+				$dst_y=440;
+				//}
 				imagecopy ( $image, $srcimLogo, ($pic_width-$srcImgLogo_w)/2, $dst_y, 0, 0, $srcImgLogo_w, imagesy($srcimLogo));
 			}
 			if($this->finger!=0){
@@ -374,13 +380,10 @@
 				}
 				$srcimFinger = imagecreatefrompng($imgSrcFinger);
 				$srcImgFinger_w=imagesx($srcimFinger);
-				if($pic_width!=744||$pic_height!=1392){
-					$dst_x=310-52;
-					$dst_y=780-128;
-				}else{
-					$dst_x=310;
-					$dst_y=780;
-				}
+				
+				$dst_x=310;
+				$dst_y=780;
+					
 				imagecopy ( $image, $srcimFinger, ($pic_width-$srcImgFinger_w)/2, $dst_y, 0, 0, $srcImgFinger_w, imagesy($srcimFinger));
 			}
 			//显示文字

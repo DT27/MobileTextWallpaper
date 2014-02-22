@@ -18,10 +18,10 @@
 			//var startTime = new Date().getTime();
 			head.load({plugins:"js/plugins.js"});
 			head.ready("plugins",function() {
-				head.load("js/script.js?20140222113422");
+				head.load("js/script.js");
 			});
 		</script>
-		<link rel="stylesheet" type="text/css" href="css/style.css?20140222113422"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	</head>
 
 	<body>
@@ -160,7 +160,7 @@
 					<div class="tab-pane panel-info" id="chooseBgt3">
 											<div class="alert-info">
                                             <p class="alert-info">
-												上传744*1392的图片会原尺寸生成，其他尺寸会缩放填充到640*1136</p>
+												上传744*1392的图片会原尺寸生成，其他尺寸会缩放填充到744*1392</p>
 											<div class="btn btn-success fileinput-button">
 												<i class="icon-plus icon-white"></i>
 												<span>选择图片</span>
