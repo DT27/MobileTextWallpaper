@@ -124,6 +124,7 @@ function ChangeType(type){
 	document.getElementById('t3').style.display='none';
 	document.getElementById('t4').style.display='none';
 	document.getElementById('t5').style.display='none';
+	document.getElementById('t6').style.display='none';
 	$('.type').css("borderColor","white");
 	$('.type').css("backgroundColor","white");
 	$('#type'+type).css("borderColor","red");

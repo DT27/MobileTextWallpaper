@@ -98,7 +98,7 @@
 									<div id="collapseTwo" class="panel-collapse collapse">
 										<div class="panel-body">
 											<p class="alert alert-danger">
-												上传744*1392的图片会原尺寸生成，其他尺寸会缩放填充到640*1136</p>
+												上传744*1392的图片会原尺寸生成，其他尺寸会缩放填充或裁剪到744*1392</p>
 											<div class="btn btn-success fileinput-button">
 												<i class="icon-plus icon-white"></i>
 												<span>选择图片</span>
@@ -160,7 +160,7 @@
 					<div class="tab-pane panel-info" id="chooseBgt3">
 											<div class="alert-info">
                                             <p class="alert-info">
-												上传744*1392的图片会原尺寸生成，其他尺寸会缩放填充到744*1392</p>
+												上传744*1392的图片会原尺寸生成，其他尺寸会缩放填充或裁剪到744*1392</p>
 											<div class="btn btn-success fileinput-button">
 												<i class="icon-plus icon-white"></i>
 												<span>选择图片</span>
