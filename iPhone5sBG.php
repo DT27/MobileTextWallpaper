@@ -332,7 +332,7 @@
 				}
 				break;
 			}
-			$image = $base->resizeImage($image,640,1136);
+			$image = $base->resizeImage($image,744,1392);
 			$pic_width = imagesx($image);
 			$pic_height = imagesy($image);
 			//定义颜色

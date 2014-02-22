@@ -31,8 +31,8 @@
 			<li><a href="javascript:$('#issuesModal').modal('show');">问题反馈</a></li>
 		</ol>
 		<!-- style="display:none;"
-		<div class="alert alert-danger">升级中，暂时无法使用。<br />预计完成时间：2014-2-18 15:30:00</div>
 		-->
+		<div class="alert alert-danger">程序还不完善，如果发现任何问题，请点击右上角的“问题反馈”提交问题，我会尽快修复。<br /></div>
 		<form class="form-signin" role="form" id="form1" action="uJ6Yvus8nGwH6.php" enctype="multipart/form-data" method="post" target="ifm">
 			<div class="container" id="top">
 				<!--
