@@ -334,7 +334,7 @@
 			$textColor = ImageColorAllocate ( $image, $textColors['r'], $textColors['g'], $textColors['b']);
 			//PNG水印图
 			if($this->logo!=0){
-				$imgSrcLogo;
+				//$imgSrcLogo;
 				switch($this->logo){
 					case 1:
 						$imgSrcLogo="img/iphone5s_title.png";

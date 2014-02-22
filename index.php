@@ -1,12 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<title>文字壁纸生成</title>
 		<meta name="keywords" content="iPhone5s文字壁纸生成,文字壁纸,iphone5s壁纸,5s壁纸,iphone壁纸,文字壁纸,手机壁纸"/>
 		<meta name="description" content="给喜欢的壁纸加上个性文字，励志名言，表达爱意，展示心情，想写什么就写什么的文字控神器！程序正在开发初期，以后还会支持字体选择~希望大家都能够拥有自己喜欢的个性文字壁纸~~~" />
-		<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" />
 		<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
 		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 		<script type="text/javascript">
@@ -147,32 +147,32 @@
 				<p class="alert-info">建议浅(亮)色背景使用深色文字<br />反之，你懂的
 				</p><p class="bg-info">
 					②背景颜色：<span class="input-group-addon">#</span><input type="text" class="input-sm iColorPicker " id="colorPickerT3" name="colorT3" value="f1e9de" maxlength="6" onclick="iColorShow('colorPickerT3','icp_colorPickerT3')">
-				</p><p class="bg-info">③文字颜色：<span class="input-group-addon">#</span><input type="text" class="input-sm iColorPicker " id="colorPickerT3Text" name="colorT3Text" value="000" maxlength="6" onclick="iColorShow('colorPickerT3Text','icp_colorPickerT3Text')">
+				</p><p class="bg-info">③文字颜色：<span class="input-group-addon">#</span><input type="text" class="input-sm iColorPicker " id="colorPickerT3Text" name="colorT3Text" value="000" maxlength="6" onclick="iColorShow('colorPickerT3Text','icp_colorPickerT3Text')" />
 				</p>
 				<p class="alert alert-danger">文字最佳个数<br />中文不超过10个，英文不超过25个<br />以后会改进为根据字数自动更改文字大小</p>
-				<input type="text" name="lovetext" class="form-control" placeholder="我会想你" value="我会想你">
-				<input type="text" name="lovetext0" class="form-control" placeholder="I will think of you" value="I will think of you">
-				<input type="text" name="lovetext1" class="form-control" placeholder="在漫漫长路的每一步" value="在漫漫长路的每一步">
-				<input type="text" name="lovetext2" class="form-control" placeholder="every step of the way" value="every step of the way">
-				<input type="text" name="lovetext3" class="form-control" placeholder="中文" value="">
-				<input type="text" name="lovetext4" class="form-control" placeholder="English" value="">
+				<input type="text" name="lovetext" class="form-control" placeholder="我会想你" value="我会想你" />
+				<input type="text" name="lovetext0" class="form-control" placeholder="I will think of you" value="I will think of you" />
+				<input type="text" name="lovetext1" class="form-control" placeholder="在漫漫长路的每一步" value="在漫漫长路的每一步" />
+				<input type="text" name="lovetext2" class="form-control" placeholder="every step of the way" value="every step of the way" />
+				<input type="text" name="lovetext3" class="form-control" placeholder="中文" value="" />
+				<input type="text" name="lovetext4" class="form-control" placeholder="English" value="" />
 				<h4 class="info">&nbsp;</h4>
 				<div class="row" id="t3Names">
 					<div class="col-xs-3"> <img src="img/heartblock.png" width="100%" /></div>
 					<div class="col-xs-2"></div>
 					<div class="col-xs-3">
-						<input type="text" name="loveName1" id="loveName1" class="form-control" placeholder="张三" value="" title="只输入一个名字自动居中">
+						<input type="text" name="loveName1" id="loveName1" class="form-control" placeholder="张三" value="" title="只输入一个名字自动居中" />
 					</div>
 					<div class="col-xs-3">
-						<input type="text" name="loveName2" id="loveName2" class="form-control" placeholder="李四四" value="" title="只输入一个名字自动居中">
+						<input type="text" name="loveName2" id="loveName2" class="form-control" placeholder="李四四" value="" title="只输入一个名字自动居中" />
 					</div>
 					<div></div>
 				</div>
 			</div>
 			<div class="container" id="t4">
 				<p class="alert-info">请输入最少两个汉字，最多六个汉字，不需要第二行直接留空就行了。</p>
-				<input type="text" name="t41" class="form-control" placeholder="" value="贴吧专属神机">
-				<input type="text" name="t42" class="form-control" placeholder="" value="">
+				<input type="text" name="t41" class="form-control" placeholder="" value="贴吧专属神机" />
+				<input type="text" name="t42" class="form-control" placeholder="" value="" />
 			</div>
 			<!-- /container -->
 			<div class="container" id="t5">
@@ -213,12 +213,12 @@
 					<button type="button" class="btn btn-default" onclick="$('#sex6').val(1);$('#sexGroup6 button').removeClass('active');$(this).addClass('active');$('#t6').css('background','url(img/61.jpg) center no-repeat');">男生版</button>
 				</div>
 
-				<input type="text" name="t6" class="form-control" placeholder="" value="在一起，永远">
+				<input type="text" name="t6" class="form-control" placeholder="" value="在一起，永远" />
 			</div>
 			<!-- /container t6 -->
 			<div class="container" id="bottom">
 				<!-- -->
-				<p class="alert alert-success pay"><span> 求赞助 o(≧v≦)o </span><a href="https://me.alipay.com/dt27" target="_blank">支付宝:</a> dragonet1943@gmail.com</p>
+				<p class="alert alert-success pay"><span> 欢迎赞助  </span><a href="https://me.alipay.com/dt27" target="_blank">支付宝:</a> dragonet1943@gmail.com</p>
 				<input type="hidden" name="type" id="type" value="11" />
 				<button type="button" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#myModal" id="create">End ☞ 生成 </button>
 				<!-- JiaThis Button BEGIN --><div class="alert alert-success">
@@ -240,17 +240,12 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<p class="alert-info" id="loadInfo">复杂背景加载较慢，请耐心等待</p>
-					<button type="submit" class="btn btn-lg btn-success btn-block" data-dismiss="modal">返回</button>
-					<div class="modal-body" style="text-align:center;"> <img id="result" src="img/loading.gif" width="145"/> </div>
-					<div class="modal-footer" id="bottom">
-						<button type="submit" class="btn btn-lg btn-success btn-block" data-dismiss="modal">返回</button>
-					</div>
+					<div class="modal-body" style="text-align:center;"><button type="submit" class="btn btn-lg btn-success btn-block" data-dismiss="modal">返回</button> <img id="result" src="img/loading.gif" width="145"/> <button type="submit" class="btn btn-lg btn-success btn-block" data-dismiss="modal">返回</button> </div>
 				</div>
 			</div>
 		</div>
 
-		<!-- Large modal -->
-
+		<!-- 反馈 Start -->
 		<div class="modal fade bs-example-modal-lg" id="issuesModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-lg">
 				<div class="modal-content">
@@ -260,7 +255,7 @@
 					</div>
 					<div class="modal-body"><div class="form-group">
 							<label for="issuesTitle">标题</label>
-							<input type="text" class="form-control" placeholder="必填" name="issuesTitle" id="issuesTitle" autocomplete="off"></div><div class="form-group">
+							<input type="text" class="form-control" placeholder="必填" name="issuesTitle" id="issuesTitle" autocomplete="off" /></div><div class="form-group">
 							<label for="issuesContent">描述</label>
 							<textarea class="form-control" rows="6" name="issuesContent" id="issuesContent"></textarea>
 							<button type="button" id="issuesCreate" class="btn btn-primary">提交问题</button>
@@ -278,6 +273,7 @@
 						提交成功！</div></div>
 			</div>
 		</div>
+		<!-- 反馈 End -->
 
 		<script type="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
 		<div style="display:none">
@@ -292,7 +288,7 @@
 				summary:"",
 				shortUrl:true,
 				hideMore:false
-			}
+			};
 		</script>
 		<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=895611" charset="utf-8"></script>
 	</body>

@@ -38,7 +38,7 @@ $(function(){
 				$('#result')[0].src='./'+src;
 				$("img").load(function(){
 					$('#result').width('100%');
-					$('#loadInfo').html("手机浏览器长按图片保存 <br /> 电脑请右击图片另存为");
+					$('#loadInfo').html("手机浏览器长按图片保存 <br /> 若无法保存，请使用自带safari浏览器");
 				});
 			}   //操作成功后的操作！msg是后台传过来的值
 		});
@@ -116,7 +116,6 @@ function ChangeType(type){
 	document.getElementById('t3').style.display='none';
 	document.getElementById('t4').style.display='none';
 	document.getElementById('t5').style.display='none';
-	document.getElementById('t6').style.display='none';
 	$('.type').css("borderColor","white");
 	$('.type').css("backgroundColor","white");
 	$('#type'+type).css("borderColor","red");
