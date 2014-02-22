@@ -108,7 +108,6 @@
 											<button type="submit" id="triggerUpload" class="btn btn-primary"><i class="icon-upload icon-white"></i> 立即上传</button>
 											<iframe id='ifm' name='ifm' style="display:none"></iframe>
 											<input type="hidden" value="img/11.png" name="bgImgt1" id="bgImgt1" />
-											<input type="hidden" value="img/11.png" name="bgImg" id="bgImg" />
 										</div>
 									</div>
 								</div>
@@ -170,7 +169,7 @@
 											</div>
 											<button type="submit" id="triggerUpload" class="btn btn-primary"><i class="icon-upload icon-white"></i> 立即上传</button>
 											<iframe id='ifm' name='ifm' style="display:none"></iframe>
-											<input type="hidden" value="img/11.png" name="bgImgt3" id="bgImgt3" />
+											<input type="hidden" value="" name="bgImgt3" id="bgImgt3" />
 									</div></div>
 </div>
 

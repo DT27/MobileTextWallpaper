@@ -18,12 +18,19 @@ $(function(){
 		//e.target // activated tab
 		// e.relatedTarget // previous tab
 		if(e.target.href.indexOf("t3") < 0 ) {
-		if(e.target.href.indexOf("color") >= 0 ) {
-			ChangeType(10);
+			document.getElementById('bgImgt1').value = "";
+			document.getElementById('bgImgt3').value = "";
+			if(e.target.href.indexOf("color") >= 0 ) {
+				ChangeType(10);
+			}
+			else{
+				ChangeType(11);
+			}
+		}else{
+			$('#t3').css('background','#'+$("#colorPickerT3").val());
+			document.getElementById('bgImgt1').value = "";
+			document.getElementById('bgImgt3').value = "";
 		}
-		else{
-			ChangeType(11);
-		}}
 	});
 
 	//ChangeType(parseInt($('#type').val()));
@@ -135,12 +142,14 @@ function ChangeType(type){
 		case 6:
 			document.getElementById('t'+type).style.display='block';
 			document.getElementById('bgImgt1').value = "";
+			document.getElementById('bgImgt3').value = "";
 			break;
 		case 10:
 			$('#type1').css("borderColor","red");
 			$('#type1').css("backgroundColor","red");
 			document.getElementById('t1').style.display='block';
 			$('#t1').css("background",'none #'+$('#colorPickerT1').val());
+			document.getElementById('bgImgt1').value = "";
 			break;
 		case 11:
 		case 12:
