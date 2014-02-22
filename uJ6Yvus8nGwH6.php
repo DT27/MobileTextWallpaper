@@ -25,16 +25,20 @@
 	$max_file_size=5000000;     //上传文件大小限制, 单位BYTE
 	$destination_folder="temp/"; //上传文件路径
 	//允许上传的文件类型为:implode(', ',$uptypes)
+	
+	$id = $_REQUEST["type"];
+	if($id ==11)
+	$id=1;
 	if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	{
-		if (!is_uploaded_file($_FILES["upfile"][tmp_name]))
+		if (!is_uploaded_file($_FILES["upfilet".$id][tmp_name]))
 		//是否存在文件
 		{
 			echo "<script type=\"text/javascript\">alert('图片不存在！')</script>";
 			exit;
 		}
 
-		$file = $_FILES["upfile"];
+		$file = $_FILES["upfilet".$id];
 		if($max_file_size < $file["size"])
 		//检查文件大小
 		{
@@ -80,7 +84,7 @@
 		$fname=$pinfo[basename];
 
 
-		echo "<script type=\"text/javascript\">parent.document.getElementById('t1').style.background='url(./".$destination_folder.$fname.") center no-repeat';parent.document.getElementById('bgImg').value='".$destination_folder.$fname."'</script>";
+		echo "<script type=\"text/javascript\">parent.document.getElementById('t".$id."').style.background='url(./".$destination_folder.$fname.") center no-repeat';parent.document.getElementById('bgImgt".$id."').value='".$destination_folder.$fname."'</script>";
 		//echo "<img src=\"".$destination."\" width=".($image_size[0]*$imgpreviewsize)." height=".($image_size[1]*$imgpreviewsize);
 		//echo " alt=\"图片预览:\r文件名:".$destination."\r上传时间:\">";
 		//echo $destination_folder.$fname;

@@ -124,13 +124,7 @@ h2, h3, h4, h5, .h5, h6, .h6 {
 #chooseType img {
 	width: 20%;
 }
-#colorBg {
-	margin-top: 0;
-	border-top-left-radius: 0;
-	border-top-right-radius: 0;
-}
-
-#chooseBg {
+#colorBg,#colorBgt3,#colorBgt3 p ,#chooseBg, #chooseBgt3,#chooseBgt3 p{
 	margin-top: 0;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
@@ -415,3 +409,6 @@ background: url(../img/jiathis_ico_32x32.png) no-repeat left;
 }
 /* 导航菜单 */
 .breadcrumb{ text-align:right; margin-bottom:5px;}
+.panel-group {
+margin-bottom: 0;
+}

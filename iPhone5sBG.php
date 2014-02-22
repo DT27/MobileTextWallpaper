@@ -417,7 +417,7 @@
 		var $color=1;
 		var $colorT3="fff";
 		var $colorT3Text="000";
-
+		var $bgImgt3="";
 
 		//+52
 		//+128
@@ -452,10 +452,13 @@
 		var $loveName2;
 		var $showXName2 = 549;
 		var $showYName2 = 978;
-		function __construct($text,$text0,$text1,$text2,$text3,$text4,$loveName1,$loveName2,$colorT3,$colorT3Text) {
+		function __construct($text,$text0,$text1,$text2,$text3,$text4,$loveName1,$loveName2,$colorT3,$colorT3Text,$bgImgt3) {
 			$loveName1 = trim($loveName1);
 			$loveName2 = trim($loveName2);
 
+			if(isset($bgImgt3)){
+				$this->bgImgt3 = $bgImgt3;
+			}
 			//echo strlen($text3);
 			if(isset($colorT3)){
 				$this->colorT3 = $colorT3;
@@ -541,7 +544,38 @@
 			//Header ( "Content-type: image/png" );
 			$base  = new base();
 			//建立图象
-			$image = imagecreatetruecolor(744,1392);
+			if(!isset($this->bgImgt3) ||$this->bgImgt3 == ""){
+				$image = imagecreatetruecolor(744,1392);
+			//背景颜色
+			$colors = $base->hex2rgb($this->colorT3);
+			$bgColor = ImageColorAllocate ( $image, $colors['r'], $colors['g'], $colors['b']);
+			imagefilledrectangle($image,0,0,744,1392,$bgColor); //图片着色
+			}else{
+				$filename = $this->bgImgt3;
+				$file = fopen($filename, "rb");
+				$bin = fread($file, 2); //只读2字节
+				fclose($file);
+				$strInfo = @unpack("C2chars", $bin);
+				$typeCode = intval($strInfo['chars1'].$strInfo['chars2']);
+				switch ($typeCode)
+				{
+					case 255216:
+						$image = imagecreatefromjpeg ( $filename );
+						break;
+					case 13780:
+						$image = imagecreatefrompng ( $filename );
+						break;
+				}
+
+			}
+			
+				$pic_width = imagesx($image);
+				$pic_height = imagesy($image);
+				if($pic_width!=744||$pic_height!=1392){
+					$image = $base->resizeImage($image,744,1392);
+					$pic_width = imagesx($image);
+					$pic_height = imagesy($image);
+				}
 			//$image = imagecreatefromjpeg ( $this->bgpic ); //这里的图片，换成你的图片路径
 			//定义颜色
 			$red = ImageColorAllocate ( $image, 255, 0, 0 );
@@ -549,10 +583,6 @@
 			$black = ImageColorAllocate ( $image, 0, 0, 0 );
 			$textColors = $base->hex2rgb($this->colorT3Text);
 			$textColor = ImageColorAllocate ( $image, $textColors['r'], $textColors['g'], $textColors['b']);
-			//背景颜色
-			$colors = $base->hex2rgb($this->colorT3);
-			$bgColor = ImageColorAllocate ( $image, $colors['r'], $colors['g'], $colors['b']);
-			imagefilledrectangle($image,0,0,744,1392,$bgColor); //图片着色
 
 			//填充颜色
 			//ImageFilledRectangle($image,0,0,200,200,$red);
@@ -828,7 +858,7 @@
 			$base->delImg($_REQUEST["filename"]);
 			break;
 		case 3:
-			$s = new showLoveText ($_REQUEST["lovetext"],$_REQUEST["lovetext0"],$_REQUEST["lovetext1"],$_REQUEST["lovetext2"],$_REQUEST["lovetext3"],$_REQUEST["lovetext4"],$_REQUEST["loveName1"],$_REQUEST["loveName2"],$_REQUEST["colorT3"],$_REQUEST["colorT3Text"]);
+			$s = new showLoveText ($_REQUEST["lovetext"],$_REQUEST["lovetext0"],$_REQUEST["lovetext1"],$_REQUEST["lovetext2"],$_REQUEST["lovetext3"],$_REQUEST["lovetext4"],$_REQUEST["loveName1"],$_REQUEST["loveName2"],$_REQUEST["colorT3"],$_REQUEST["colorT3Text"],$_REQUEST["bgImgt3"]);
 			$s->show ();
 			break;
 		case 4:
@@ -849,11 +879,11 @@
 		case 12:
 		case 13:
 		case 14:
-			$s = new showChinaText ($_REQUEST["text"],$_REQUEST["text0"],$_REQUEST["text3"],$_REQUEST["text1"],$_REQUEST["text2"],$type,$_REQUEST["finger"],$_REQUEST["logo"],$_REQUEST["colorT1"],$_REQUEST["colorTText"],$_REQUEST["bgImg"]);
+			$s = new showChinaText ($_REQUEST["text"],$_REQUEST["text0"],$_REQUEST["text3"],$_REQUEST["text1"],$_REQUEST["text2"],$type,$_REQUEST["finger"],$_REQUEST["logo"],$_REQUEST["colorT1"],$_REQUEST["colorTText"],$_REQUEST["bgImgt1"]);
 			$s->show ();
 			break;
 		default:
-			$s = new showChinaText ($_REQUEST["text"],$_REQUEST["text0"],$_REQUEST["text3"],$_REQUEST["text1"],$_REQUEST["text2"],$type,$_REQUEST["finger"],$_REQUEST["logo"],$_REQUEST["colorT1"],$_REQUEST["colorTText"],$_REQUEST["bgImg"]);
+			$s = new showChinaText ($_REQUEST["text"],$_REQUEST["text0"],$_REQUEST["text3"],$_REQUEST["text1"],$_REQUEST["text2"],$type,$_REQUEST["finger"],$_REQUEST["logo"],$_REQUEST["colorT1"],$_REQUEST["colorTText"],$_REQUEST["bgImgt1"]);
 			$s->show ();
 			break;
 	}

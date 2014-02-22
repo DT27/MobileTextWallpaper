@@ -3,8 +3,8 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<title>文字壁纸生成</title>
-		<meta name="keywords" content="iPhone5s文字壁纸生成,文字壁纸,iphone5s壁纸,5s壁纸,iphone壁纸,文字壁纸,手机壁纸"/>
+		<title>手机文字壁纸生成</title>
+		<meta name="keywords" content="iPhone5s文字壁纸生成,手机文字壁纸,iphone5s文字壁纸,手机壁纸,手机文字壁纸生成"/>
 		<meta name="description" content="给喜欢的壁纸加上个性文字，励志名言，表达爱意，展示心情，想写什么就写什么的文字控神器！程序正在开发初期，以后还会支持字体选择~希望大家都能够拥有自己喜欢的个性文字壁纸~~~" />
 		<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" />
 		<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
@@ -18,10 +18,10 @@
 			//var startTime = new Date().getTime();
 			head.load({plugins:"js/plugins.js"});
 			head.ready("plugins",function() {
-				head.load("js/script.js");
+				head.load("js/script.js?20140222113422");
 			});
 		</script>
-		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css?20140222113422"/>
 	</head>
 
 	<body>
@@ -67,13 +67,13 @@
 				<!-- Tab panes -->
 				<div class="tab-content">
 					<div class="tab-pane" id="colorbg">
-						<p class="alert-info" id="colorBg">背景颜色：<span class="input-group-addon">#</span><input type="text" class="input-sm iColorPicker " id="colorPickerT1" name="colorT1" value="e4d7c7" maxlength="6" onclick="iColorShow('colorPickerT1','icp_colorPickerT1')">
+						<p class="alert-info colorBg" id="colorBg">背景颜色：<span class="input-group-addon">#</span><input type="text" class="input-sm iColorPicker " id="colorPickerT1" name="colorT1" value="e4d7c7" maxlength="6" onclick="iColorShow('colorPickerT1','icp_colorPickerT1')">
 						</p>
 					</div>
 					<div class="tab-pane active" id="imgbg">
 						<div class="alert bg-info" id="chooseBg">
 							<div class="panel-group" id="accordion">
-								<div class="panel panel-success">
+								<div class="panel panel-info">
 									<div class="panel-heading">
 										<h4 class="panel-title">
 											<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
@@ -87,7 +87,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="panel panel-danger">
+								<div class="panel panel-info">
 									<div class="panel-heading">
 										<h4 class="panel-title">
 											<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
@@ -103,10 +103,11 @@
 												<i class="icon-plus icon-white"></i>
 												<span>选择图片</span>
 												<!-- The file input field used as target for the file upload widget -->
-												<input id="upfile" type="file" name="upfile" style="width:155px; height:37px;">
+												<input id="upfilet1" type="file" name="upfilet1" style="width:155px; height:37px;">
 											</div>
 											<button type="submit" id="triggerUpload" class="btn btn-primary"><i class="icon-upload icon-white"></i> 立即上传</button>
 											<iframe id='ifm' name='ifm' style="display:none"></iframe>
+											<input type="hidden" value="img/11.png" name="bgImgt1" id="bgImgt1" />
 											<input type="hidden" value="img/11.png" name="bgImg" id="bgImg" />
 										</div>
 									</div>
@@ -124,7 +125,7 @@
 					<button type="button" class="btn btn-default" onclick="$('#logo').val(4);$('#logoImg').attr('src','img/apple_logo_white.png').show();$('#logoGroup button').removeClass('active');$(this).addClass('active');"><i class="icon-apple-white"></i></button>
 				</div>
 				<h2><img id="logoImg" src="img/iphone5s_title_white.png" width="80%" /> </h2>
-				<p class="alert-info" id="colorText">建议浅(亮)色背景使用深色文字<br />反之，你懂的<br />文字颜色：<span class="input-group-addon">#</span><input type="text" class="input-sm iColorPicker " id="colorPickerTText" name="colorTText" value="fff" maxlength="6" onclick="iColorShow('colorPickerTText','icp_colorPickerTText')">
+				<p class="alert-info" id="colorText">文字颜色：<span class="input-group-addon">#</span><input type="text" class="input-sm iColorPicker " id="colorPickerTText" name="colorTText" value="fff" maxlength="6" onclick="iColorShow('colorPickerTText','icp_colorPickerTText')">
 				</p>
 				<input type="text" name="text" class="form-control" placeholder="你他妈吃天胆了" value="你他妈吃天胆了">
 				<input type="text" name="text0" class="form-control" placeholder="敢动老子的手机" value="敢动老子的手机">
@@ -143,11 +144,37 @@
 			<!-- /container -->
 
 			<div class="container" id="t3">
-
-				<p class="alert-info">建议浅(亮)色背景使用深色文字<br />反之，你懂的
-				</p><p class="bg-info">
+            	
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" id="myTabt3">
+					<li class="active"><a href="#colorBgt3" data-toggle="tab">使用纯色背景</a></li>
+					<li><a href="#chooseBgt3" data-toggle="tab">使用图片背景</a></li>
+				</ul>
+                <!-- Tab panes -->
+				<div class="tab-content">
+					<div class="tab-pane active" id="colorBgt3">
+                                        <div class="alert-info">
 					②背景颜色：<span class="input-group-addon">#</span><input type="text" class="input-sm iColorPicker " id="colorPickerT3" name="colorT3" value="f1e9de" maxlength="6" onclick="iColorShow('colorPickerT3','icp_colorPickerT3')">
-				</p><p class="bg-info">③文字颜色：<span class="input-group-addon">#</span><input type="text" class="input-sm iColorPicker " id="colorPickerT3Text" name="colorT3Text" value="000" maxlength="6" onclick="iColorShow('colorPickerT3Text','icp_colorPickerT3Text')" />
+				</div>
+                                        </div>
+				<!-- Tab panes -->
+					<div class="tab-pane panel-info" id="chooseBgt3">
+											<div class="alert-info">
+                                            <p class="alert-info">
+												上传744*1392的图片会原尺寸生成，其他尺寸会缩放填充到640*1136</p>
+											<div class="btn btn-success fileinput-button">
+												<i class="icon-plus icon-white"></i>
+												<span>选择图片</span>
+												<!-- The file input field used as target for the file upload widget -->
+												<input id="upfilet3" type="file" name="upfilet3" style="width:155px; height:37px;">
+											</div>
+											<button type="submit" id="triggerUpload" class="btn btn-primary"><i class="icon-upload icon-white"></i> 立即上传</button>
+											<iframe id='ifm' name='ifm' style="display:none"></iframe>
+											<input type="hidden" value="img/11.png" name="bgImgt3" id="bgImgt3" />
+									</div></div>
+</div>
+
+				<p class="bg-info">③文字颜色：<span class="input-group-addon">#</span><input type="text" class="input-sm iColorPicker " id="colorPickerT3Text" name="colorT3Text" value="000" maxlength="6" onclick="iColorShow('colorPickerT3Text','icp_colorPickerT3Text')" />
 				</p>
 				<p class="alert alert-danger">文字最佳个数<br />中文不超过10个，英文不超过25个<br />以后会改进为根据字数自动更改文字大小</p>
 				<input type="text" name="lovetext" class="form-control" placeholder="我会想你" value="我会想你" />

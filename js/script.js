@@ -17,12 +17,13 @@ $(function(){
 	$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 		//e.target // activated tab
 		// e.relatedTarget // previous tab
+		if(e.target.href.indexOf("t3") < 0 ) {
 		if(e.target.href.indexOf("color") >= 0 ) {
 			ChangeType(10);
 		}
 		else{
 			ChangeType(11);
-		}
+		}}
 	});
 
 	//ChangeType(parseInt($('#type').val()));
@@ -126,14 +127,14 @@ function ChangeType(type){
 			$('#type11').css("backgroundColor","red");
 			document.getElementById('t1').style.display='block';
 			$('#t1').css('background','url(./img/11bg.jpg) center no-repeat');
-			document.getElementById('bgImg').value = "img/11.png";
+			document.getElementById('bgImgt1').value = "img/11.png";
 			break;
 		case 3:
 		case 4:
 		case 5:
 		case 6:
 			document.getElementById('t'+type).style.display='block';
-			document.getElementById('bgImg').value = "";
+			document.getElementById('bgImgt1').value = "";
 			break;
 		case 10:
 			$('#type1').css("borderColor","red");
@@ -149,14 +150,14 @@ function ChangeType(type){
 			$('#type1').css("backgroundColor","red");
 			document.getElementById('t1').style.display='block';
 			$('#t1').css('background','url(./img/'+type+'bg.jpg) center no-repeat');
-			document.getElementById('bgImg').value = "img/"+type+".png";
+			document.getElementById('bgImgt1').value = "img/"+type+".png";
 			break;
 		default:
 			$('#type1').css("borderColor","red");
 			$('#type1').css("backgroundColor","red");
 			document.getElementById('t1').style.display='block';
 			$('#t1').css('background','url(./img/'+type+'bg.jpg) center no-repeat');
-			document.getElementById('bgImg').value = "img/"+type+".png";
+			document.getElementById('bgImgt1').value = "img/"+type+".png";
 			break;
 	}
 }
