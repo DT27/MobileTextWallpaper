@@ -76,7 +76,7 @@
 
 		if(!move_uploaded_file ($filename, $destination))
 		{
-			echo "<script type=\"text/javascript\">alert('移动文件出错！')</script>";
+			echo "<script type=\"text/javascript\">alert('对不起，服务器空间已满，请下个整点再试！')</script>";
 			exit;
 		}
 
