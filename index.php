@@ -37,7 +37,8 @@
 		<div class="alert-danger" align="left">　　程序还不完善，如果发现任何问题，请点击右上角的“问题反馈”提交问题，我会尽快修复。<br />
 		　　图片上传速度取决于您的网络。不建议使用移动流量生成图片，每生成一次图片会耗费0.5-1.5MB流量。<br />
 		　　样式正在不断添加，程序也在改进中，现在每到整点程序自动删除上个整点之前的图片，如果某个时间段程序生成的图片太多，会导致空间不足，无法生成或上传图片，等下个整点再试就可以了。等以后，我买新的服务器就不会有这问题了。
-        </div>
+        <br />
+		　　有些文字显示不出来，等今天我加个自定义字体功能，显示不出来的文字用正常字体就可以了。</div>
 				<!--
 				-->
 				<div class="panel-group" id="accordionSizeInfo">
@@ -58,7 +59,7 @@
 				<p class="alert-warning"  id="tieba">贴吧客户端直接打开页面不能保存图片<br />
 					请到手机浏览器里输入<a href="http://dt27.cn/5s"><span class="import">dt27.cn/5s</span></a>访问</p>
 				<p class="bg-primary" id="chooseType">①样式选择<br /> <img src="img/p2.jpg" alt="样式2" class="img-thumbnail type" id="type1" onclick="ChangeType(1);">
-					<img src="img/p3.jpg" alt="样式1" class="img-thumbnail type" id="type3" onclick="ChangeType(3);"> <img src="img/p4.jpg" alt="样式3" class="img-thumbnail type" id="type4" onclick="ChangeType(4);"> <img src="img/p5.jpg" alt="样式5" class="img-thumbnail type" id="type5" onclick="ChangeType(5);"> <img src="img/p6.jpg" alt="样式6" class="img-thumbnail type" id="type6" onclick="ChangeType(6);"></p>
+					<img src="img/p3.jpg" alt="样式1" class="img-thumbnail type" id="type3" onclick="ChangeType(3);"> <img src="img/p4.jpg" alt="样式3" class="img-thumbnail type" id="type4" onclick="ChangeType(4);"> <img src="img/p5.jpg" alt="样式5" class="img-thumbnail type" id="type5" onclick="ChangeType(5);"> <img src="img/p6.jpg" alt="样式6" class="img-thumbnail type" id="type6" onclick="ChangeType(6);"> <img src="img/p7.jpg" alt="样式7" class="img-thumbnail type" id="type7" onclick="ChangeType(7);"></p>
 			</div>
 			<div class="container" id="t1">
 				<!-- Nav tabs -->
@@ -120,7 +121,7 @@
 				</div>
 				<input type="hidden" name="logo" id="logo" value="2" />
 				<div class="btn-group btn-group-sm" id="logoGroup">
-					<button type="button" class="btn btn-default" onclick="$('#logo').val(0);$('#logoGroup button').removeClass('active');$(this).addClass('active');$('#logoImg').hide();">不显示Logo</button>
+					<button type="button" class="btn btn-default" onclick="$('#logo').val(0);$('#logoGroup button').removeClass('active');$(this).addClass('active');$('#logoImg').hide();">不显示</button>
 					<button type="button" class="btn btn-default" onclick="$('#logo').val(1);$('#logoImg').attr('src','img/iphone5s_title.png').show();$('#logoGroup button').removeClass('active');$(this).addClass('active');">黑5s</button>
 					<button type="button" class="btn btn-default active" onclick="$('#logo').val(2);$('#logoImg').attr('src','img/iphone5s_title_white.png').show();$('#logoGroup button').removeClass('active');$(this).addClass('active');">白5s</button>
 					<button type="button" class="btn btn-default" onclick="$('#logo').val(3);$('#logoImg').attr('src','img/apple_logo.png').show();$('#logoGroup button').removeClass('active');$(this).addClass('active');"><i class="icon-apple-black"></i></button>
@@ -245,6 +246,13 @@
 				<input type="text" name="t6" class="form-control" placeholder="" value="在一起，永远" />
 			</div>
 			<!-- /container t6 -->
+            
+			<div class="container" id="t7">
+				<p class="alert-info">第一行最多6个汉字，第二行最多11个</p>
+				<input type="text" name="t71" class="form-control" placeholder="" value="我想念你的吻" />
+				<input type="text" name="t72" class="form-control" placeholder="" value="和嘴角冰淇淋的味道" />
+			</div>
+			<!-- /container t7 -->
 			<div class="container" id="bottom">
 				<!-- -->
 				<p class="alert alert-success pay"><span> 欢迎赞助  </span><a href="https://me.alipay.com/dt27" target="_blank">支付宝:</a> dragonet1943@gmail.com</p>
@@ -270,6 +278,7 @@
 				<div class="modal-content">
 					<p class="alert-info" id="loadInfo">复杂背景加载较慢，请耐心等待</p>
 					<div class="modal-body" style="text-align:center;"><button type="submit" class="btn btn-lg btn-success btn-block" data-dismiss="modal">返回</button> <img id="result" src="img/loading.gif" width="145"/> <button type="submit" class="btn btn-lg btn-success btn-block" data-dismiss="modal">返回</button> </div>
+                    <div class="modal-footer" id="bottom">&nbsp;</div>
 				</div>
 			</div>
 		</div>

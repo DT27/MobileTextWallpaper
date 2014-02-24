@@ -141,6 +141,7 @@ function ChangeType(type){
 		case 4:
 		case 5:
 		case 6:
+		case 7:
 			document.getElementById('t'+type).style.display='block';
 			document.getElementById('bgImgt1').value = "";
 			document.getElementById('bgImgt3').value = "";

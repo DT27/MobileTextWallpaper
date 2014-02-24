@@ -39,6 +39,10 @@ p,.alert {
 	padding-bottom: 50px;
    background-size:cover !important;
 }
+#t3 {
+	background-color: #f1e9de;
+	display: none;
+}
 #t1{background:url(../img/11bg.jpg) center no-repeat;}
 #t4 {
 	display: none;
@@ -63,16 +67,14 @@ p,.alert {
 	text-align: center;
 	color:white;
 }
+#t7{
+	background-color:#f0ece1; display:none;}
 #top {
 	max-width: 640px;
 	min-width: 300px;
 	margin: 0 auto;
 	text-align: center;
 	background-color: #eee;
-}
-#t3 {
-	background-color: #f1e9de;
-	display: none;
 }
 #colorPickerTText {
 	background-color: #fff;
