@@ -147,11 +147,12 @@ h2, h3, h4, h5, .h5, h6, .h6 {
 	font-size: 16px;
 }
 #t3 .row {
-	background: url(../img/heart.png) 85% 0 no-repeat;
+	background: url(../img/heart.png) 75% 0 no-repeat;
 	max-height: 186px;
 	min-height: 92px;
-	background-size: 30%
+	background-size: 20%
 }
+.col-xs-5{ min-width:135px;}
 .col-xs-3 {
 	padding-top: 7%;
 }

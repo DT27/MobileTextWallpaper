@@ -396,6 +396,7 @@ class showLoveText {
 	var $font = 'fonts/jybxs.ttf';
 	var $fontName = 'fonts/jybxs.ttf';
 	var $fonten = 'fonts/ElegantScript.ttf';
+	var $nameSize = 38;
 	var $color = 1;
 	var $colorT3 = "fff";
 	var $colorT3Text = "000";
@@ -427,12 +428,18 @@ class showLoveText {
 	var $loveName2;
 	var $showXName2 = 549;
 	var $showYName2 = 978;
-	function __construct($text, $text0, $text1, $text2, $text3, $text4, $loveName1, $loveName2, $colorT3, $colorT3Text, $bgImgt3) {
+	function __construct($text, $text0, $text1, $text2, $text3, $text4, $loveName1, $loveName2, $colorT3, $colorT3Text, $bgImgt3, $fontName) {
 		$loveName1 = trim ( $loveName1 );
 		$loveName2 = trim ( $loveName2 );
 
 		if (isset ( $bgImgt3 )) {
 			$this->bgImgt3 = $bgImgt3;
+		}
+		if (isset ( $fontName )) {
+			if ($fontName==1) {
+				$this->fontName = 'fonts/wryh.ttf';
+				$this->nameSize = 30;
+			}
 		}
 		// echo strlen($text3);
 		if (isset ( $colorT3 )) {
@@ -587,8 +594,10 @@ class showLoveText {
 		imagettftext ( $image, 36, 0, $this->showX2, $this->showY2, $textColor, $this->fonten, $txt2 );
 		imagettftext ( $image, 38, 0, $this->showX3, $this->showY3, $textColor, $this->font, $txt3 );
 		imagettftext ( $image, 36, 0, $this->showX4, $this->showY4, $textColor, $this->fonten, $txt4 );
-		imagettftext ( $image, 38, 0, $this->showXName1, $this->showYName1, $textColor, $this->fontName, $loveName1 );
-		imagettftext ( $image, 38, 0, $this->showXName2, $this->showYName2, $textColor, $this->fontName, $loveName2 );
+
+		$fbox = imagettfbbox ( $this->nameSize, 0, $this->fontName, $loveName1 ); // (744-$fbox[2])/2
+		imagettftext ( $image, $this->nameSize, 0, 744-215-$fbox[2], $this->showYName1, $textColor, $this->fontName, $loveName1 );
+		imagettftext ( $image, $this->nameSize, 0, $this->showXName2, $this->showYName2, $textColor, $this->fontName, $loveName2 );
 
 		echo $base->saveImg ( $image );
 		// ImageDestroy ( $image );
@@ -862,7 +871,7 @@ switch ($type) {
 		$base->delImg ( $_REQUEST ["filename"] );
 		break;
 	case 3 :
-		$s = new showLoveText ( $_REQUEST ["lovetext"], $_REQUEST ["lovetext0"], $_REQUEST ["lovetext1"], $_REQUEST ["lovetext2"], $_REQUEST ["lovetext3"], $_REQUEST ["lovetext4"], $_REQUEST ["loveName1"], $_REQUEST ["loveName2"], $_REQUEST ["colorT3"], $_REQUEST ["colorT3Text"], $_REQUEST ["bgImgt3"] );
+		$s = new showLoveText ( $_REQUEST ["lovetext"], $_REQUEST ["lovetext0"], $_REQUEST ["lovetext1"], $_REQUEST ["lovetext2"], $_REQUEST ["lovetext3"], $_REQUEST ["lovetext4"], $_REQUEST ["loveName1"], $_REQUEST ["loveName2"], $_REQUEST ["colorT3"], $_REQUEST ["colorT3Text"], $_REQUEST ["bgImgt3"], $_REQUEST ["font"] );
 		$s->show ();
 		break;
 	case 4 :

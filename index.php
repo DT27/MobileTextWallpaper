@@ -187,9 +187,14 @@
 				<input type="text" name="lovetext3" class="form-control" placeholder="中文" value="" />
 				<input type="text" name="lovetext4" class="form-control" placeholder="English" value="" />
 				<h4 class="info">&nbsp;</h4>
+                <p class="alert-info">生成后个别字无法显示的选择雅黑即可</p>
 				<div class="row" id="t3Names">
-					<div class="col-xs-3"> <img src="img/heartblock.png" width="100%" /></div>
-					<div class="col-xs-2"></div>
+					<div class="col-xs-5"><div class="btn-group btn-group-sm" id="fontGroup">
+                    	名字字体：<br />
+                    <input type="hidden" name="font" id="font" value="0" />
+					<button type="button" class="btn btn-default active" onclick="$('#font').val(0);$('#fontGroup button').removeClass('active');$(this).addClass('active');">手写体</button>
+					<button type="button" class="btn btn-default" onclick="$('#font').val(1);$('#fontGroup button').removeClass('active');$(this).addClass('active');">雅黑</button>
+				</div></div>
 					<div class="col-xs-3">
 						<input type="text" name="loveName1" id="loveName1" class="form-control" placeholder="张三" value="" title="只输入一个名字自动居中" />
 					</div>
