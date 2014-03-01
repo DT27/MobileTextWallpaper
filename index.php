@@ -38,7 +38,7 @@
 		　　图片上传速度取决于您的网络。不建议使用移动流量生成图片，每生成一次图片会耗费0.5-1.5MB流量。<br />
 		　　样式正在不断添加，程序也在改进中，现在每到整点程序自动删除上个整点之前的图片，如果某个时间段程序生成的图片太多，会导致空间不足，无法生成或上传图片，等下个整点再试就可以了。等以后，我买新的服务器就不会有这问题了。
         <br />
-		　　有些文字显示不出来，等今天我加个自定义字体功能，显示不出来的文字用正常字体就可以了。</div>
+		　　最进比较忙，所以一直没更新，抱歉~</div>
 				<!--
 				-->
 				<div class="panel-group" id="accordionSizeInfo">
@@ -147,7 +147,7 @@
 			<!-- /container -->
 
 			<div class="container" id="t3">
-            	
+
 				<!-- Nav tabs -->
 				<ul class="nav nav-tabs" id="myTabt3">
 					<li class="active"><a href="#colorBgt3" data-toggle="tab">使用纯色背景</a></li>
@@ -251,7 +251,7 @@
 				<input type="text" name="t6" class="form-control" placeholder="" value="在一起，永远" />
 			</div>
 			<!-- /container t6 -->
-            
+
 			<div class="container" id="t7">
 				<p class="alert-info">第一行最多6个汉字，第二行最多11个</p>
 				<input type="text" name="t71" class="form-control" placeholder="" value="我想念你的吻" />

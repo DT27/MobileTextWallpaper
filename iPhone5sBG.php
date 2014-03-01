@@ -805,7 +805,7 @@ class showText {
 				echo $base->saveImg ( $image );
 				break;
 			case 6 :
-				$image = imagecreatetruecolor ( 744, 1392 );
+				$image = imagecreatefromjpeg ( $this->bgpic );
 				$white = ImageColorAllocate ( $image, 255, 255, 255 );
 				$txt = $base->createText ( $this->text );
 				$fbox = imagettfbbox ( $this->size, 0, $this->font6, $txt ); // (744-$fbox[2])/2
