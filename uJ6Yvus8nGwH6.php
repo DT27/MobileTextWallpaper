@@ -20,7 +20,7 @@ $uptypes=array(
 //'image/x-png'
 );
 $max_file_size=5000000;     //上传文件大小限制, 单位BYTE
-$destination_folder="temp/"; //上传文件路径
+$destination_folder="upimg/"; //上传文件路径
 //允许上传的文件类型为:implode(', ',$uptypes)
 $id = $_REQUEST["type"];
 if($id ==11)

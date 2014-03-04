@@ -183,9 +183,9 @@ class base {
 		return $FileName;
 	}
 	function delImg($delfile) {
-		$name = '../5s/' . $delfile;
+		$name = realpath(".") . '/' . $delfile;
 		if (file_exists ( $name )) {
-			unlink ( $name );
+			@unlink ( $name );
 		}
 	}
 	/**
