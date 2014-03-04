@@ -6,5 +6,5 @@
 !img/
 !js/
 img/*.psd
-_notes/*
+*/_notes/*
 thumbs.db

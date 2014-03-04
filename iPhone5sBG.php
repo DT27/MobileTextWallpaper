@@ -14,33 +14,27 @@ class base {
 	function resizeImg($im, $maxwidth, $maxheight) {
 		$pic_width = imagesx ( $im );
 		$pic_height = imagesy ( $im );
-
 		if (($maxwidth && $pic_width > $maxwidth) || ($maxheight && $pic_height > $maxheight)) {
 			if ($maxwidth && $pic_width > $maxwidth) {
 				$widthratio = $maxwidth / $pic_width;
 				$resizewidth_tag = true;
 			}
-
 			if ($maxheight && $pic_height > $maxheight) {
 				$heightratio = $maxheight / $pic_height;
 				$resizeheight_tag = true;
 			}
-
 			if ($resizewidth_tag && $resizeheight_tag) {
 				if ($widthratio < $heightratio)
 					$ratio = $widthratio;
 				else
 					$ratio = $heightratio;
 			}
-
 			if ($resizewidth_tag && ! $resizeheight_tag)
 				$ratio = $widthratio;
 			if ($resizeheight_tag && ! $resizewidth_tag)
 				$ratio = $heightratio;
-
 			$newwidth = $pic_width * $ratio;
 			$newheight = $pic_height * $ratio;
-
 			if (function_exists ( "imagecopyresampled" )) {
 				$newim = imagecreatetruecolor ( $newwidth, $newheight );
 				imagecopyresampled ( $newim, $im, 0, 0, 0, 0, $newwidth, $newheight, $pic_width, $pic_height );
@@ -83,7 +77,6 @@ class base {
 			// 生成一个以最大边长度为大小的是目标图像$ratio比例的临时图像
 			// 定义一个新的图像
 			$new_img = imagecreatetruecolor ( $new_width, $new_height );
-
 			imagecopyresampled ( $new_img, $inter_img, 0, 0, 0, 0, $new_width, $new_height, $inter_w, $inter_h );
 			return $new_img;
 		} 		// end if 1
@@ -91,7 +84,7 @@ class base {
 		  // =if( ($ratio_w < 1 && $ratio_h > 1) || ($ratio_w >1 && $ratio_h <1) )
 		else {
 			$ratio = $ratio_h > $ratio_w ? $ratio_h : $ratio_w; // 取比例大的那个值
-			                                                    // 定义一个中间的大图像，该图像的高或宽和目标图像相等，然后对原图放大
+			// 定义一个中间的大图像，该图像的高或宽和目标图像相等，然后对原图放大
 			$inter_w = ( int ) ($w * $ratio);
 			$inter_h = ( int ) ($h * $ratio);
 			$inter_img = imagecreatetruecolor ( $inter_w, $inter_h );
@@ -99,7 +92,6 @@ class base {
 			imagecopyresampled ( $inter_img, $src_img, 0, 0, 0, 0, $inter_w, $inter_h, $w, $h );
 			// 定义一个新的图像
 			$new_img = imagecreatetruecolor ( $new_width, $new_height );
-
 			$sw = imagesx ( $inter_img );
 			$sh = imagesy ( $inter_img );
 			if ($new_width < $sw)
@@ -185,8 +177,8 @@ class base {
 	function saveImg($image) {
 		date_default_timezone_set ( 'PRC' );
 		$FileID = date ( "Ymd_His" ) . '_' . rand ( 1000, 9999 );
-		$FileName = 'temp/' . $FileID . '.png';
-		imagepng ( $image, $FileName );
+		$FileName = 'temp/' . $FileID . '.jpg';
+		imagejpeg ( $image, $FileName );
 		ImageDestroy ( $image );
 		return $FileName;
 	}
@@ -277,10 +269,6 @@ class showChinaText {
 		}
 	}
 	function show() {
-		// 输出头内容
-		// Header ( "Content-type: image/png" );
-		// 建立图象
-		// $image = imagecreate(400,300);
 		$base = new base ();
 		// 建立图象
 		switch ($this->type) {
@@ -303,9 +291,6 @@ class showChinaText {
 						$image = imagecreatefromjpeg ( $this->bgImg );
 						break;
 					case 13780 :
-						$image = imagecreatefrompng ( $this->bgImg );
-						break;
-					default :
 						$image = imagecreatefrompng ( $this->bgImg );
 						break;
 				}
@@ -522,8 +507,6 @@ class showLoveText {
 		}
 	}
 	function show() {
-		// 输出头内容
-		// Header ( "Content-type: image/png" );
 		$base = new base ();
 		// 建立图象
 		if (! isset ( $this->bgImgt3 ) || $this->bgImgt3 == "") {
@@ -775,7 +758,7 @@ class showText {
 				$this->sex == 1 ? $bgColor = ImageColorAllocate ( $image, 163, 201, 230 ) : $bgColor = ImageColorAllocate ( $image, 255, 210, 195 );
 
 				imagefilledrectangle ( $image, 0, 0, 744, 1392, $bgColor ); // 图片着色
-				                                                            // PNG水印图
+				// PNG水印图
 				$imgSrc = "img/lovers.png";
 				$srcInfo = getimagesize ( $imgSrc );
 				$srcImg_w = $srcInfo [0];
@@ -859,6 +842,7 @@ $type = $_REQUEST ["type"];
 $base = new base ();
 
 switch ($type) {
+	/* 
 	case 999 :
 		$filename = "issues.txt"; // 定义操作文件
 		$fcontent = file ( $filename ); // file()把整个文件读入一个数组中
@@ -866,7 +850,7 @@ switch ($type) {
 		$str = $_REQUEST ["IP"] . ' ' . $_REQUEST ["Address"] . ' ' . $_REQUEST ["title"] . ' ' . $_REQUEST ["content"] . "\r\n\r\n";
 		fwrite ( $fp, $str );
 		fclose ( $fp ); // 关闭指针
-		break;
+		break; */
 	case 0 :
 		$base->delImg ( $_REQUEST ["filename"] );
 		break;

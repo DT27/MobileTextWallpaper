@@ -1,5 +1,17 @@
 var filename="";
 $(function(){
+	UserVoice=window.UserVoice||[];
+	UserVoice.push(['addTrigger', '#feedback', {}]);
+	UserVoice.push(['set', {
+	  // Options can also be set on specific widgets instead of globally
+	  target: 'self', // 'none' for toaster popups, #id for a specific element on the page
+	  position: 'automatic', // Popover position
+	  height: '325px', // Widget height
+	  width: '100%', // Widget width
+	  accent_color: '#458dd6', // Widget accent color
+	  locale: 'cn', // Defaults to your account’s localization
+	  contact_title: '问题反馈'
+	}]);
 	if(document.referrer.indexOf('baidu')>=0)
 		$('#tieba').show('slow');
 	$('#t3Names input').poshytip({
@@ -135,7 +147,7 @@ function ChangeType(type){
 			$('#type11').css("backgroundColor","red");
 			document.getElementById('t1').style.display='block';
 			$('#t1').css('background','url(./img/11bg.jpg) center no-repeat');
-			document.getElementById('bgImgt1').value = "img/11.png";
+			document.getElementById('bgImgt1').value = "img/11.jpg";
 			break;
 		case 3:
 		case 4:
@@ -161,14 +173,14 @@ function ChangeType(type){
 			$('#type1').css("backgroundColor","red");
 			document.getElementById('t1').style.display='block';
 			$('#t1').css('background','url(./img/'+type+'bg.jpg) center no-repeat');
-			document.getElementById('bgImgt1').value = "img/"+type+".png";
+			document.getElementById('bgImgt1').value = "img/"+type+".jpg";
 			break;
 		default:
 			$('#type1').css("borderColor","red");
 			$('#type1').css("backgroundColor","red");
 			document.getElementById('t1').style.display='block';
 			$('#t1').css('background','url(./img/'+type+'bg.jpg) center no-repeat');
-			document.getElementById('bgImgt1').value = "img/"+type+".png";
+			document.getElementById('bgImgt1').value = "img/"+type+".jpg";
 			break;
 	}
 }

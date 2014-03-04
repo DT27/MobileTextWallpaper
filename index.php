@@ -28,17 +28,15 @@
 		<img src="img/screen.jpg" width="415" height="369" style=" position:absolute;top:-500px;" />
 		<ol class="breadcrumb">
 			<li><a href="http://tieba.baidu.com/p/2862988715" target="_blank">贴吧互动</a></li>
-			<li><a href="javascript:$('#issuesModal').modal('show');">问题反馈</a></li>
+			<li><a href="mailto:dt27@dt27.cn" id="feedback">问题反馈</a></li>
 		</ol>
 		<!-- style="display:none;"
 		-->
 		<form class="form-signin" role="form" id="form1" action="uJ6Yvus8nGwH6.php" enctype="multipart/form-data" method="post" target="ifm">
 			<div class="container" id="top">
-		<div class="alert-danger" align="left">　　程序还不完善，如果发现任何问题，请点击右上角的“问题反馈”提交问题，我会尽快修复。<br />
-		　　图片上传速度取决于您的网络。不建议使用移动流量生成图片，每生成一次图片会耗费0.5-1.5MB流量。<br />
-		　　样式正在不断添加，程序也在改进中，现在每到整点程序自动删除上个整点之前的图片，如果某个时间段程序生成的图片太多，会导致空间不足，无法生成或上传图片，等下个整点再试就可以了。等以后，我买新的服务器就不会有这问题了。
-        <br />
-		　　最进比较忙，所以一直没更新，抱歉~</div>
+		<div class="alert-danger" align="left">　　程序还不完善，如果发现任何问题或有任何建议，请点击右上角的“问题反馈”提交问题，我会尽快修复并回复。<br />
+		　　图片上传速度取决于您的网络。请谨慎使用移动流量。<br />
+		　　样式正在不断添加，程序也在改进中，现在每到整点程序自动删除上个整点之前的图片，如果某个时间段程序生成的图片太多，会导致空间不足，无法生成或上传图片，等下个整点再试就可以了。等以后，我买新的服务器就不会有这问题了。</div>
 				<!--
 				-->
 				<div class="panel-group" id="accordionSizeInfo">
@@ -111,7 +109,7 @@
 											</div>
 											<button type="submit" id="triggerUpload" class="btn btn-primary"><i class="icon-upload icon-white"></i> 立即上传</button>
 											<iframe id='ifm' name='ifm' style="display:none"></iframe>
-											<input type="hidden" value="img/11.png" name="bgImgt1" id="bgImgt1" />
+											<input type="hidden" value="img/11.jpg" name="bgImgt1" id="bgImgt1" />
 										</div>
 									</div>
 								</div>
