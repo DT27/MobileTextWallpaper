@@ -594,6 +594,8 @@ class showText {
 	var $fontshouxie = 'fonts/jybxs.ttf';
 	var $fontName = 'fonts/jdchj.ttf';
 	var $font6 = 'fonts/jdzy.ttf';
+	var $font8 = "fonts/fzxkgbk.ttf";//方正行楷_GBK
+	var $fontwryh = "fonts/wryh.ttf";
 	var $bgpic = 'img/4.jpg';
 	var $color = 1;
 	var $type;
@@ -729,6 +731,15 @@ class showText {
 					$this->text0 = $text0;
 				}
 				break;
+			case 8 :
+				$this->bgpic = "img/8.jpg";
+				if (isset ( $text )) {
+					$this->text = $text;
+				}
+				if (isset ( $text0 )) {
+					$this->text0 = $text0;
+				}
+				break;
 		}
 	}
 	function show() {
@@ -831,6 +842,20 @@ class showText {
 
 				echo $base->saveImg ( $image );
 				break;
+			case 8 :
+				$image = imagecreatefromjpeg ( $this->bgpic );
+				$black = ImageColorAllocate ( $image, 0, 0, 0 );
+
+				$txt = $base->createText ( $this->text );
+				$txt0 = $base->createText ( $this->text0 );
+				
+				$fbox = imagettfbbox ( 46, 0, $this->font8, $txt ); // (744-$fbox[2])/2
+				imagettftext ( $image, 46, 0, (744-$fbox[2])/2, 875, $black, $this->font8, $txt );
+				$fbox = imagettfbbox ( 30, 0, $this->fontwryh, $txt0 ); // (744-$fbox[2])/2
+				imagettftext ( $image, 30, 0, (744-$fbox[2])/2, 950, $black, $this->fontwryh, $txt0 );
+
+				echo $base->saveImg ( $image );
+				break;
 		}
 	}
 }
@@ -872,6 +897,10 @@ switch ($type) {
 		break;
 	case 7 :
 		$s = new showText ( $_REQUEST ["t71"], $_REQUEST ["t72"], 7, null );
+		$s->show ();
+		break;
+	case 8 :
+		$s = new showText ( $_REQUEST ["t81"], $_REQUEST ["t82"], 8, null );
 		$s->show ();
 		break;
 	case 1 :

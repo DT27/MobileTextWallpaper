@@ -137,6 +137,8 @@ function ChangeType(type){
 	document.getElementById('t4').style.display='none';
 	document.getElementById('t5').style.display='none';
 	document.getElementById('t6').style.display='none';
+	document.getElementById('t7').style.display='none';
+	document.getElementById('t8').style.display='none';
 	$('.type').css("borderColor","white");
 	$('.type').css("backgroundColor","white");
 	$('#type'+type).css("borderColor","red");
@@ -154,6 +156,7 @@ function ChangeType(type){
 		case 5:
 		case 6:
 		case 7:
+		case 8:
 			document.getElementById('t'+type).style.display='block';
 			document.getElementById('bgImgt1').value = "";
 			document.getElementById('bgImgt3').value = "";
