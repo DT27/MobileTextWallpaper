@@ -187,3 +187,13 @@ function ChangeType(type){
 			break;
 	}
 }
+function getCounter(){
+	var counterG;
+	$.get("CounterG.txt", function(result){
+		counterG = "累计生成"+result+"次";
+	});
+	$.get("CounterV.txt", function(result1){
+		$("#counter").html("今日已为"+result1+"人服务，"+counterG);
+	});
+	setTimeout("getCounter()", 3000);
+}

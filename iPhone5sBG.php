@@ -1,53 +1,27 @@
 <?php
 date_default_timezone_set ( 'PRC' );
-/*
- * param $image 图象资源 param size 字体大小 param angle 字体输出角度 param showX 输出位置x坐标 param showY 输出位置y坐标 param font 字体文件位置 param content 要在图片里显示的内容
- */
 class base {
-	/**
-	 * PHP图片缩放函数:实现等比例不失真缩放
-	 *
-	 * @param 图片对象 $im
-	 * @param 定义生成图片的最大宽度 $maxwidth
-	 * @param 生成图片的最大高度 $maxheight
-	 */
-	function resizeImg($im, $maxwidth, $maxheight) {
-		$pic_width = imagesx ( $im );
-		$pic_height = imagesy ( $im );
-		if (($maxwidth && $pic_width > $maxwidth) || ($maxheight && $pic_height > $maxheight)) {
-			if ($maxwidth && $pic_width > $maxwidth) {
-				$widthratio = $maxwidth / $pic_width;
-				$resizewidth_tag = true;
+	function GenerationCounter(){
+		/* 记录生成次数 */
+		$fn = 'CounterG.txt';
+		$hits = 0;
+		// read current hits
+		if (($hits = file_get_contents($fn)) === false)
+		{
+			$hits = 0;
+		}
+		if (($fp = @fopen($fn, 'w')) !== false)
+		{
+			if (flock($fp, LOCK_EX))
+			{
+				$hits++;
+				fwrite($fp, $hits, strlen($hits));
+				flock($fp, LOCK_UN);
 			}
-			if ($maxheight && $pic_height > $maxheight) {
-				$heightratio = $maxheight / $pic_height;
-				$resizeheight_tag = true;
-			}
-			if ($resizewidth_tag && $resizeheight_tag) {
-				if ($widthratio < $heightratio)
-					$ratio = $widthratio;
-				else
-					$ratio = $heightratio;
-			}
-			if ($resizewidth_tag && ! $resizeheight_tag)
-				$ratio = $widthratio;
-			if ($resizeheight_tag && ! $resizewidth_tag)
-				$ratio = $heightratio;
-			$newwidth = $pic_width * $ratio;
-			$newheight = $pic_height * $ratio;
-			if (function_exists ( "imagecopyresampled" )) {
-				$newim = imagecreatetruecolor ( $newwidth, $newheight );
-				imagecopyresampled ( $newim, $im, 0, 0, 0, 0, $newwidth, $newheight, $pic_width, $pic_height );
-			} else {
-				$newim = imagecreate ( $newwidth, $newheight );
-				imagecopyresized ( $newim, $im, 0, 0, 0, 0, $newwidth, $newheight, $pic_width, $pic_height );
-			}
-			return $newim;
-		} else {
-			return $im;
+			fclose($fp);
 		}
 	}
-
+	
 	/**
 	 * 填充缩放图片
 	 *
@@ -77,11 +51,16 @@ class base {
 			// 生成一个以最大边长度为大小的是目标图像$ratio比例的临时图像
 			// 定义一个新的图像
 			$new_img = imagecreatetruecolor ( $new_width, $new_height );
+			$sw = imagesx ( $inter_img );
+			$sh = imagesy ( $inter_img );
 			imagecopyresampled ( $new_img, $inter_img, 0, 0, 0, 0, $new_width, $new_height, $inter_w, $inter_h );
 			return $new_img;
 		} 		// end if 1
 		  // 2 目标图像 的一个边大于原图，一个边小于原图 ，先放大平普图像，然后裁剪
 		  // =if( ($ratio_w < 1 && $ratio_h > 1) || ($ratio_w >1 && $ratio_h <1) )
+		//                                     目标图象        源图象       目标 X   目标 Y  源的 X  源的 Y  目标宽度 目标高度 源图象的宽度 源图象的高度
+		//imagecopyresampled ( $dst_image , $src_image , $dst_x , $dst_y , $src_x , $src_y , $dst_w , $dst_h , $src_w , $src_h )
+		  
 		else {
 			$ratio = $ratio_h > $ratio_w ? $ratio_h : $ratio_w; // 取比例大的那个值
 			// 定义一个中间的大图像，该图像的高或宽和目标图像相等，然后对原图放大
@@ -112,7 +91,7 @@ class base {
 			$i = 0;
 			while ( false !== ($file = readdir ( $handle )) ) {
 				// 去掉"“.”、“..”以及带“check”后缀的文件
-				if ($file != "." && $file != ".." && ! strpos ( $file, "check" ) && strpos ( $file, "." )) {
+				if ($file != "." && $file != ".." && ! strpos ( $file, "check" ) && ! strpos ( $file, "txt" ) && strpos ( $file, "." )) {
 					$fileArray [$i] = $file;
 					if ($i == 100) {
 						break;
@@ -185,7 +164,6 @@ class base {
 		return $outstring;
 	}
 	function saveImg($image) {
-		date_default_timezone_set ( 'PRC' );
 		$FileID = date ( "Ymd_His" ) . '_' . rand ( 1000, 9999 );
 		$FileName = 'temp/' . $FileID . '.jpg';
 		imagejpeg ( $image, $FileName );
@@ -923,8 +901,6 @@ switch ($type) {
 		$s->show ();
 		break;
 	default :
-		$s = new showChinaText ( $_REQUEST ["text"], $_REQUEST ["text0"], $_REQUEST ["text3"], $_REQUEST ["text1"], $_REQUEST ["text2"], $type, $_REQUEST ["finger"], $_REQUEST ["logo"], $_REQUEST ["colorT1"], $_REQUEST ["colorTText"], $_REQUEST ["bgImgt1"] );
-		$s->show ();
 		break;
 }
 
@@ -935,10 +911,11 @@ if ($type != 0) {
 		if (! file_exists ( 'temp/' . ($ymd - 1) . '23.check' )) {
 			$base->delImgs ( $ymd, $h );
 		}
-	} else {
+	}else {
 		if (! file_exists ( 'temp/' . ($ymd - 1) . $h . '.check' )) {
 			$base->delImgs ( $ymd, $h );
 		}
 	}
+	$base->GenerationCounter();
 }
 ?>
