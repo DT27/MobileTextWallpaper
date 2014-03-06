@@ -133,6 +133,9 @@ class base {
 			$fname = ( int ) ($ymd . ($h - 1));
 
 		if ($h == 0) {
+			$fname = ( int ) (($ymd - 1) . '22');
+		}
+		if ($h == 1) {
 			$fname = ( int ) (($ymd - 1) . '23');
 		}
 
@@ -151,9 +154,16 @@ class base {
 				$fp = fopen ( 'temp/' . $ymd . '00.check', "w+" ); // 打开文件指针，创建文件
 				fclose ( $fp ); // 关闭指针
 			}
+		}else if ($h == 0) {
+			if (file_exists ( 'temp/' .  $fname . '.check' )) {
+				rename ( 'temp/' .  $fname . '.check', 'temp/' . ($ymd-1) . '23.check' ); // 把原文件重新命名
+			} else {
+				$fp = fopen ( 'temp/' . ($ymd-1) . '23.check', "w+" ); // 打开文件指针，创建文件
+				fclose ( $fp ); // 关闭指针
+			}
 		} else {
-			if (file_exists ( 'temp/' . ($fname < 11 ? $ymd . '0' . ($h - 1) : $fname - 1) . '.check' )) {
-				rename ( 'temp/' . ($fname < 11 ? $ymd . '0' . ($h - 1) : $fname - 1) . '.check', 'temp/' . $fname . '.check' ); // 把原文件重新命名
+			if (file_exists ( 'temp/' . ($h < 11 ? $ymd . '0' . ($h - 2) : $fname - 1) . '.check' )) {
+				rename ( 'temp/' . ($h < 11 ? $ymd . '0' . ($h - 2) : $fname - 1) . '.check', 'temp/' . $fname . '.check' ); // 把原文件重新命名
 			} else {
 				$fp = fopen ( 'temp/' . $fname . '.check', "w+" ); // 打开文件指针，创建文件
 				fclose ( $fp ); // 关闭指针
