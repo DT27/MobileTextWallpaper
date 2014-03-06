@@ -48,6 +48,8 @@ $(function(){
 	//ChangeType(parseInt($('#type').val()));
 
 	$('#myModal').on('show.bs.modal', function (e) {
+		if($(".popover").is(":visible"))
+			bootstro.next();
 		$.ajax({
 			url:'./iPhone5sBG.php', //提交给哪个执行
 			type:'POST',
@@ -64,6 +66,8 @@ $(function(){
 		});
 	})
 	$('#myModal').on('hidden.bs.modal', function (e) {
+		if($(".popover").is(":visible"))
+			bootstro.stop();
 		$.ajax({
 			url:'./iPhone5sBG.php?type=0&filename='+filename,
 			type:'GET'
@@ -73,20 +77,6 @@ $(function(){
 		$("img").load(function(){
 			$('#result').width('145');
 			$('#loadInfo').html("背景复杂的加载较慢，请耐心等待");
-		});
-	});
-	$('#issuesCreate').click(function () {
-		$.ajax({
-			url:'./iPhone5sBG.php?type=999',
-			type:'POST',
-			data:{IP:returnCitySN['cip'],Address:returnCitySN['cname'],title:$('#issuesTitle').val(),content:$('#issuesContent').val()},
-			success:function(){
-				$('#issuesModal').modal('hide');
-				$('#issuesTitle').val('');
-				$('#issuesContent').val('');
-				$('#bugSuccess').modal('show');
-				setTimeout("$('#bugSuccess').modal('hide')",1000);
-			}
 		});
 	});
 });
@@ -190,10 +180,10 @@ function ChangeType(type){
 function getCounter(){
 	var counterG;
 	$.get("CounterG.txt", function(result){
-		counterG = "累计生成"+result+"次";
+		counterG = "生成"+result+"次 :)";
 	});
 	$.get("CounterV.txt", function(result1){
-		$("#counter").html("今日已为"+result1+"人服务，"+counterG);
+		$("#counter").html("今日累计已为"+result1+"人服务, "+counterG);
 	});
-	setTimeout("getCounter()", 3000);
+	setTimeout("getCounter()", 5000);
 }

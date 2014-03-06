@@ -40,7 +40,7 @@ class base {
 		if (($ratio_w < 1 && $ratio_h < 1) || ($ratio_w > 1 && $ratio_h > 1)) {
 			if ($ratio_w < $ratio_h) {
 				$ratio = $ratio_h; // 情况一，宽度的比例比高度方向的小，按照高度的比例标准来裁剪或放大
-			} else {
+			}else{
 				$ratio = $ratio_w;
 			}
 			// 定义一个中间的临时图像，该图像的宽高比 正好满足目标要求
@@ -204,8 +204,10 @@ class base {
 	}
 }
 class showChinaText {
+	var $text4; // = '超前，空前。';
 	var $text; // = '你他妈吃天胆了？';
 	var $font = 'fonts/wryh.ttf'; // 如果没有要自己加载到相应的目录下（本地www）
+	var $fonthei = 'fonts/simhei.ttf';//黑体
 	var $bgpic;
 	var $logo;
 	var $finger;
@@ -222,9 +224,12 @@ class showChinaText {
 	var $showY1 = 1005;
 	var $text2; // = '我这是5S，指纹解锁';
 	var $showY2 = 1060;
-	function __construct($text, $text0, $text3, $text1, $text2, $type, $finger, $logo, $colorT1, $colorTText, $bgImg) {
+	function __construct($text4, $text, $text0, $text3, $text1, $text2, $type, $finger, $logo, $colorT1, $colorTText, $bgImg) {
 		if (isset ( $bgImg )) {
 			$this->bgImg = $bgImg;
+		}
+		if (isset ( $text4 )) {
+			$this->text4 = $text4;
 		}
 		if (isset ( $text )) {
 			$this->text = $text;
@@ -339,12 +344,15 @@ class showChinaText {
 			imagecopy ( $image, $srcimFinger, ($pic_width - $srcImgFinger_w) / 2, $dst_y, 0, 0, $srcImgFinger_w, imagesy ( $srcimFinger ) );
 		}
 		// 显示文字
+		$txt4 = $base->createText ( $this->text4 );
 		$txt = $base->createText ( $this->text );
 		$txt0 = $base->createText ( $this->text0 );
 		$txt3 = $base->createText ( $this->text3 );
 		$txt1 = $base->createText ( $this->text1 );
 		$txt2 = $base->createText ( $this->text2 );
 		// 写入文字
+		$fbox = imagettfbbox ( 24, 0, $this->fonthei, $txt4 );
+		imagettftext ( $image, 24, 0, ($pic_width - $fbox [2]) / 2, 548+25, $textColor, $this->fonthei, $txt4 );
 		$fbox = imagettfbbox ( 36, 0, $this->font, $txt ); // (744-$fbox[2])/2
 		imagettftext ( $image, 36, 0, ($pic_width - $fbox [2]) / 2, $this->showY, $textColor, $this->font, $txt );
 		$fbox = imagettfbbox ( 36, 0, $this->font, $txt0 );
@@ -897,10 +905,12 @@ switch ($type) {
 	case 12 :
 	case 13 :
 	case 14 :
-		$s = new showChinaText ( $_REQUEST ["text"], $_REQUEST ["text0"], $_REQUEST ["text3"], $_REQUEST ["text1"], $_REQUEST ["text2"], $type, $_REQUEST ["finger"], $_REQUEST ["logo"], $_REQUEST ["colorT1"], $_REQUEST ["colorTText"], $_REQUEST ["bgImgt1"] );
+		$s = new showChinaText ( $_REQUEST ["text4"],$_REQUEST ["text"], $_REQUEST ["text0"], $_REQUEST ["text3"], $_REQUEST ["text1"], $_REQUEST ["text2"], $type, $_REQUEST ["finger"], $_REQUEST ["logo"], $_REQUEST ["colorT1"], $_REQUEST ["colorTText"], $_REQUEST ["bgImgt1"] );
 		$s->show ();
 		break;
 	default :
+		$s = new showChinaText ( $_REQUEST ["text4"],$_REQUEST ["text"], $_REQUEST ["text0"], $_REQUEST ["text3"], $_REQUEST ["text1"], $_REQUEST ["text2"], $type, $_REQUEST ["finger"], $_REQUEST ["logo"], $_REQUEST ["colorT1"], $_REQUEST ["colorTText"], $_REQUEST ["bgImgt1"] );
+		$s->show ();
 		break;
 }
 
