@@ -178,12 +178,8 @@ function ChangeType(type){
 	}
 }
 function getCounter(){
-	var counterG;
-	$.get("CounterG.txt", function(result){
-		counterG = "生成"+result+"次 :)";
-	});
-	$.get("CounterV.txt", function(result1){
-		$("#counter").html("今日累计已为"+result1+"人服务, "+counterG);
+	$.get("Counter.php", function(result){
+		$("#counter").html("今日累计已为"+result+"次 :-)");
 	});
 	setTimeout("getCounter()", 5000);
 }

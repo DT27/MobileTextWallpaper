@@ -1,25 +1,24 @@
 <?php
+require_once 'SQLiteHelper.php';
 date_default_timezone_set ( 'PRC' );
 class base {
 	function GenerationCounter(){
 		/* 记录生成次数 */
-		$fn = 'CounterG.txt';
-		$hits = 0;
-		// read current hits
-		if (($hits = file_get_contents($fn)) === false)
-		{
-			$hits = 0;
+		$db = new SQLiteHelper;
+		$ymd = (int)date("Ymd");
+		$result = $db->QuerySqlite('select * from Counter where day = '.$ymd);
+		$row = sqlite_fetch_all($result);
+		$g = 0;
+		$gAll = 0;
+		if (count($row)) {
+			$g = $row[0]['CounterG'];
+			$gAll = $row[0]['CounterGAll'];
+		}else{
+			$db->ExecSqlite('INSERT INTO Counter (Day) VALUES ('.$ymd.')');
 		}
-		if (($fp = @fopen($fn, 'w')) !== false)
-		{
-			if (flock($fp, LOCK_EX))
-			{
-				$hits++;
-				fwrite($fp, $hits, strlen($hits));
-				flock($fp, LOCK_UN);
-			}
-			fclose($fp);
-		}
+		$g++;
+		$gAll++;
+		$db->ExecSqlite('update Counter set CounterG = '.$g.' where day = '.$ymd);
 	}
 	
 	/**

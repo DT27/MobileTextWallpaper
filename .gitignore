@@ -1,11 +1,13 @@
 /*
-!index.html
-!counter.php
-!iPhone5sBG.php
-!uJ6Yvus8nGwH6.php
+!db/
 !css/
 !img/
 !js/
+!index.html
+!iPhone5sBG.php
+!uJ6Yvus8nGwH6.php
+!Counter.php
+!SQLiteHelper.php
 img/*.psd
 */_notes/*
 *thumbs.db*

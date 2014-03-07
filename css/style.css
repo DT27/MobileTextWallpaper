@@ -372,13 +372,13 @@ input[name="t42"] {
 .jiathis_style_32x32 .jiathis_counter.jiathis_bubble_style{padding:0 3px 0 3px !important;}
 .jiathis_style_32x32 .jiathis_separator{ margin:0 !important;}
 .jiathis_style_32x32 .jtico{
-background: url(../img/jiathis_ico_32x32.png) no-repeat left;
+background: url(../img/jiathis_ico_32x32.png) no-repeat left !important;
 }
-.jiathis_style_32x32 .jtico_tsina{background-position:0px 0px}
-.jiathis_style_32x32 .jtico_qzone{background-position: 0px -32px}
-.jiathis_style_32x32 .jtico_renren{background-position:0px -64px}
-.jiathis_style_32x32 .jtico_tqq{background-position:0px -96px}
-.jiathis_style_32x32 .jtico_jiathis{background-position:0px -160px}
+.jiathis_style_32x32 .jtico_tsina{background-position:0px 0px !important;}
+.jiathis_style_32x32 .jtico_qzone{background-position: 0px -32px !important;}
+.jiathis_style_32x32 .jtico_renren{background-position:0px -64px !important;}
+.jiathis_style_32x32 .jtico_tqq{background-position:0px -96px !important;}
+.jiathis_style_32x32 .jtico_jiathis{background-position:0px -160px !important;}
 .ckepopBottom{ display:none !important;}
 [class^="icon-"],
 [class*=" icon-"] {
