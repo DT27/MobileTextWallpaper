@@ -20,18 +20,24 @@ p,.alert {
 #chooseType img {
 	width: 20%;
 }
+.alert{white-space:normal;}
 .img-thumbnail {
 	cursor: pointer;
 }
-.panel-body{
+#chooseImg{
 	white-space: nowrap;
 	overflow: auto;}
 	
-#colorBg,#colorBgt3,#colorBgt3 p ,#chooseBg, #chooseBgt3,#chooseBgt3 p{
+#colorBg,#colorBgt3,#colorBgt3 p ,#chooseBg, #chooseBgt3{
 	margin-top: 0;
 	border-top-left-radius: 0;
-	border-top-right-radius: 0;
+	border-top-right-radius: 0;border: 1px solid #bce8f1;
 }
+#chooseBg .panel{ background:none;border-radius:0;}
+#chooseBg,#colorBg{background:none;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;}
+#chooseBg .panel-heading{border-radius:0;}
 #chooseBg img {
 	width: 20%;
 }
@@ -58,7 +64,7 @@ p,.alert {
 	background-color: #f1e9de;
 	display: none;
 }
-#t1{background:url(../img/11bg.jpg) center no-repeat;}
+#t1{background:url(http://dt27.qiniudn.com/img/11bg.jpg) center no-repeat;}
 #t4,#t8 {
 	display: none;
 }
@@ -72,7 +78,7 @@ p,.alert {
 }
 #t6{
 	height:600px;
-	background: url(../img/62.jpg) center no-repeat;
+	background: url(http://dt27.qiniudn.com/img/62.jpg) center no-repeat;
    background-size:cover !important;
 	display: none;
 }
@@ -84,7 +90,7 @@ p,.alert {
 }
 #t7{
 	background-color:#f0ece1; display:none;}
-#t8{ background:url(../img/8bg.gif) repeat;}
+#t8{ background:url(http://dt27.qiniudn.com/img/8bg.gif) repeat;}
 #t8 input[type='text']{
 	text-align:center;}
 #top {
@@ -148,7 +154,7 @@ h2, h3, h4, h5, .h5, h6, .h6 {
 	font-size: 16px;
 }
 #t3 .row {
-	background: url(../img/heart.png) 75% 0 no-repeat;
+	background: url(http://dt27.qiniudn.com/img/heart.png) 75% 0 no-repeat;
 	max-height: 186px;
 	min-height: 92px;
 	background-size: 20%
@@ -277,7 +283,7 @@ input[name="t42"] {
 	left: 50%;
 	width: 9px;
 	height: 5px;
-	background: url(../img/tip-twitter_arrows.gif) no-repeat;
+	background: url(http://dt27.qiniudn.com/img/tip-twitter_arrows.gif) no-repeat;
 }
 .tip-twitter .tip-arrow-right {
 	margin-top: -4px;
@@ -286,7 +292,7 @@ input[name="t42"] {
 	left: 100%;
 	width: 5px;
 	height: 9px;
-	background: url(../img/tip-twitter_arrows.gif) no-repeat -9px 0;
+	background: url(http://dt27.qiniudn.com/img/tip-twitter_arrows.gif) no-repeat -9px 0;
 }
 .tip-twitter .tip-arrow-bottom {
 	margin-top: 0;
@@ -295,7 +301,7 @@ input[name="t42"] {
 	left: 50%;
 	width: 9px;
 	height: 5px;
-	background: url(../img/tip-twitter_arrows.gif) no-repeat -18px 0;
+	background: url(http://dt27.qiniudn.com/img/tip-twitter_arrows.gif) no-repeat -18px 0;
 }
 .tip-twitter .tip-arrow-left {
 	margin-top: -4px;
@@ -304,7 +310,7 @@ input[name="t42"] {
 	left: 0;
 	width: 5px;
 	height: 9px;
-	background: url(../img/tip-twitter_arrows.gif) no-repeat -27px 0;
+	background: url(http://dt27.qiniudn.com/img/tip-twitter_arrows.gif) no-repeat -27px 0;
 }
 /* 颜色选择器 */
 .iColorPicker, input[class='iColorPicker']:focus {
@@ -372,7 +378,7 @@ input[name="t42"] {
 .jiathis_style_32x32 .jiathis_counter.jiathis_bubble_style{padding:0 3px 0 3px !important;}
 .jiathis_style_32x32 .jiathis_separator{ margin:0 !important;}
 .jiathis_style_32x32 .jtico{
-background: url(../img/jiathis_ico_32x32.png) no-repeat left !important;
+background: url(http://dt27.qiniudn.com/img/jiathis_ico_32x32.png) no-repeat left !important;
 }
 .jiathis_style_32x32 .jtico_tsina{background-position:0px 0px !important;}
 .jiathis_style_32x32 .jtico_qzone{background-position: 0px -32px !important;}
@@ -389,23 +395,23 @@ background: url(../img/jiathis_ico_32x32.png) no-repeat left !important;
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url("../img/glyphicons-halflings.png");
+  background-image: url("http://dt27.qiniudn.com/img/glyphicons-halflings.png");
   background-position: 14px 14px;
   background-repeat: no-repeat;
 }
 .popover-inner{color:#000;}
 /* White icons with optional class, or on hover/focus/active states of certain elements */
 .icon-white{
-  background-image: url("../img/glyphicons-halflings-white.png");
+  background-image: url("http://dt27.qiniudn.com/img/glyphicons-halflings-white.png");
 }
 .icon-apple-black{
   height: 17px;
-  background-image: url("../img/a_black.png");
+  background-image: url("http://dt27.qiniudn.com/img/a_black.png");
   background-position:0 0;
 }
 .icon-apple-white{
   height: 17px;
-  background-image: url("../img/a_white.png");
+  background-image: url("http://dt27.qiniudn.com/img/a_white.png");
   background-position:0 0;
 }
 .icon-plus {
@@ -421,4 +427,3 @@ background: url(../img/jiathis_ico_32x32.png) no-repeat left !important;
 margin-bottom: 0;
 }
 .alert-danger{ color:red; font-weight:bold;}
-.pay{font-size:10px;}

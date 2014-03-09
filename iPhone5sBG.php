@@ -13,12 +13,10 @@ class base {
 		if (count($row)) {
 			$g = $row[0]['CounterG'];
 			$gAll = $row[0]['CounterGAll'];
-		} else {
-			$db->ExecSqlite('INSERT INTO Counter (Day) VALUES (' . $ymd . ')');
-		}
 		$g++;
 		$gAll++;
 		$db->ExecSqlite('update Counter set CounterG = ' . $g . ' where day = ' . $ymd);
+		}
 	}
 
 	/**

@@ -45,38 +45,40 @@ $(function(){
 		}
 	});
 
-	//ChangeType(parseInt($('#type').val()));
-
+	var loading = $('#loadingImg');
+	var result;
 	$('#myModal').on('show.bs.modal', function (e) {
 		if($(".popover").is(":visible"))
 			bootstro.next();
+		$('#loadInfo').html("文字壁纸生成中···");
+		
 		$.ajax({
-			url:'./iPhone5sBG.php', //提交给哪个执行
+			url:'./iPhone5sBG.php',
 			type:'POST',
 			data:$('input').serialize(), //序列化表单的值
 			success: function(src){
+				$('#loadInfo').slideUp('fast').html("文字壁纸生成成功，加载中···<br />(背景复杂的文字壁纸加载较慢，请耐心等待)").slideDown('fast');
 				filename=src;
 				var img = new Image();
-				$('#result')[0].src='./'+src;
-				$("img").load(function(){
-					$('#result').width('100%');
-					$('#loadInfo').html("手机浏览器长按图片保存 <br /> 若无法保存，请使用自带safari浏览器");
+				img.src = filename;
+				$(img).load(function(){
+					result=$("<img src=\""+this.src+"\" width=\"100%\" />");
+					$('#loadInfo').slideUp('fast').html("手机浏览器长按图片保存 <br /> 若无法保存，请使用自带safari浏览器").slideDown('fast');
+					loading.hide();
+        			loading.after(result);
 				});
-			}   //操作成功后的操作！msg是后台传过来的值
+			},
 		});
 	})
 	$('#myModal').on('hidden.bs.modal', function (e) {
 		if($(".popover").is(":visible"))
 			bootstro.stop();
+		result.remove();
+		loading.show();
+		$('#loadInfo').html("");
 		$.ajax({
 			url:'./iPhone5sBG.php?type=0&filename='+filename,
 			type:'GET'
-		});
-		var img = new Image();
-		$('#result')[0].src='./img/loading.gif';
-		$("img").load(function(){
-			$('#result').width('145');
-			$('#loadInfo').html("背景复杂的加载较慢，请耐心等待");
 		});
 	});
 });
@@ -138,7 +140,7 @@ function ChangeType(type){
 			$('#type11').css("borderColor","red");
 			$('#type11').css("backgroundColor","red");
 			document.getElementById('t1').style.display='block';
-			$('#t1').css('background','url(./img/11bg.jpg) center no-repeat');
+			$('#t1').css('background','url(http://dt27.qiniudn.com/img/11bg.jpg) center no-repeat');
 			document.getElementById('bgImgt1').value = "img/11.jpg";
 			break;
 		case 3:
@@ -165,21 +167,21 @@ function ChangeType(type){
 			$('#type1').css("borderColor","red");
 			$('#type1').css("backgroundColor","red");
 			document.getElementById('t1').style.display='block';
-			$('#t1').css('background','url(./img/'+type+'bg.jpg) center no-repeat');
+			$('#t1').css('background','url(http://dt27.qiniudn.com/img/'+type+'bg.jpg) center no-repeat');
 			document.getElementById('bgImgt1').value = "img/"+type+".jpg";
 			break;
 		default:
 			$('#type1').css("borderColor","red");
 			$('#type1').css("backgroundColor","red");
 			document.getElementById('t1').style.display='block';
-			$('#t1').css('background','url(./img/'+type+'bg.jpg) center no-repeat');
+			$('#t1').css('background','url(http://dt27.qiniudn.com/img/'+type+'bg.jpg) center no-repeat');
 			document.getElementById('bgImgt1').value = "img/"+type+".jpg";
 			break;
 	}
 }
 function getCounter(){
 	$.get("Counter.php", function(result){
-		$("#counter").html("今日累计已为"+result+"次 :-)");
+		$("#counter").html("今日已为"+result+"次 :-)");
 	});
 	setTimeout("getCounter()", 5000);
 }
