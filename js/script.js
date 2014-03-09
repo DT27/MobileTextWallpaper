@@ -1,5 +1,37 @@
 var filename="";
+var myScroll;
+var myScroll1;
+function loaded () {
+	myScroll = new IScroll('#chooseType', {
+		eventPassthrough: true, 
+		scrollX: true,
+		scrollY: false,
+		scrollbars: true,
+		interactiveScrollbars: true,
+		shrinkScrollbars: 'scale',
+		fadeScrollbars: true,
+		click:true,
+		preventDefault: false
+	 });
+	myScroll1 = new IScroll('#chooseImg', {
+		eventPassthrough: true, 
+		scrollX: true,
+		scrollY: false,
+		scrollbars: true,
+		interactiveScrollbars: true,
+		shrinkScrollbars: 'scale',
+		fadeScrollbars: true,
+		click:true,
+		preventDefault: false
+	});
+}
+//document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+document.body.ondragstart=function(){return false;};
 $(function(){
+	$('#chooseType').height($('#chooseType div img:first').height()+30+"px");
+	$('#chooseImg').height($('#chooseImg div img:first').height()+30+"px");
+	loaded();
+
 	UserVoice=window.UserVoice||[];
 	UserVoice.push(['addTrigger', '#feedback', {}]);
 	UserVoice.push(['set', {
@@ -48,6 +80,7 @@ $(function(){
 	var loading = $('#loadingImg');
 	var result;
 	$('#myModal').on('show.bs.modal', function (e) {
+		_czc.push(["_trackEvent", "手机文字壁纸生成","点击","生成"]);
 		if($(".popover").is(":visible"))
 			bootstro.next();
 		$('#loadInfo').html("文字壁纸生成中···");
