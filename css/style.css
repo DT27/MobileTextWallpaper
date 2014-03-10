@@ -17,6 +17,7 @@ p,.alert {
 #chooseType{
 	padding:5px;
 	 white-space:nowrap;
+	 min-height:124px;
 	 height:236px;overflow: hidden;position: relative;}
 #chooseType #scrollable { padding: 5px; position: absolute; width:140%;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -41,6 +42,7 @@ p,.alert {
 #chooseImg{
 	white-space: nowrap;
 	padding-top:5px;
+	 min-height:124px;
 	height:200px;overflow: hidden;position: relative;}
 #chooseBg img {
 	width: 6%;
@@ -410,6 +412,7 @@ input[name="t42"] {
 	-webkit-box-sizing:content-box;
 	-moz-box-sizing: border-box;
 	box-sizing:content-box;
+	float:left; line-height:32px; font-size:18px;
 }
 .jiathis_style_32x32 .jiathis_counter.jiathis_bubble_style{padding:0 3px 0 3px !important;}
 .jiathis_style_32x32 .jiathis_separator{ margin:0 !important;}
@@ -463,3 +466,5 @@ background: url(http://dt27.qiniudn.com/img/jiathis_ico_32x32.png) no-repeat lef
 margin-bottom: 0;
 }
 .alert-danger{ color:red; font-weight:bold;}
+#md5{color:#FFF;}
+.btn-group-sm button{height:31px;}

@@ -1,6 +1,7 @@
 var filename="";
 var myScroll;
 var myScroll1;
+
 function loaded () {
 	myScroll = new IScroll('#chooseType', {
 		eventPassthrough: true, 
@@ -25,9 +26,113 @@ function loaded () {
 		preventDefault: false
 	});
 }
-//document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 document.body.ondragstart=function(){return false;};
 $(function(){
+	document.getElementById("upfilet1").addEventListener("change", function() {
+		$('#fileinput-button-t1').attr('disabled','disabled');
+		$('#fileinput-button-t1 span').html('上传中...');
+    	var blobSlice = File.prototype.slice || File.prototype.mozSlice || File.prototype.webkitSlice,
+        file = this.files[0],
+        chunkSize = 2097152,                               // read in chunks of 2MB
+        chunks = Math.ceil(file.size / chunkSize),
+        currentChunk = 0,
+        spark = new SparkMD5.ArrayBuffer(),
+        frOnload = function(e) {
+            spark.append(e.target.result);                 // append array buffer
+            currentChunk++;
+
+            if (currentChunk < chunks) {
+                loadNext();
+            }
+            else {
+				//获取图片md5跟服务器已有图片对比
+				var md5 = spark.end();
+				$.get('iPhone5sBG.php?type=999&md5='+md5,function(fname){
+				   if(fname){
+					   var img = new Image();
+						img.src = "upimg/"+fname;
+						$(img).load(function(){
+						   document.getElementById('t1').style.background="url('"+img.src+"')";
+						   document.getElementById('bgImgt1').value=img.src;
+		$('#fileinput-button-t1').removeAttr('disabled');
+							$('#fileinput-button-t1 span').html('选择图片');
+						});
+				   }
+				   else document.forms['form1'].submit();//图片不在服务器上，上传图片。
+				});
+            }
+        },
+        frOnerror = function () {
+            alert("图片上传出错，请点击右上角“问题反馈”提交您的问题、浏览器版本以及选择的样式。");
+        };
+
+		function loadNext() {
+			var fileReader = new FileReader();
+			fileReader.onload = frOnload;
+			fileReader.onerror = frOnerror;
+	
+			var start = currentChunk * chunkSize,
+				end = ((start + chunkSize) >= file.size) ? file.size : start + chunkSize;
+	
+			fileReader.readAsArrayBuffer(blobSlice.call(file, start, end));
+		};
+	
+		loadNext();
+	});
+	
+	document.getElementById("upfilet3").addEventListener("change", function() {
+		$('#fileinput-button-t3').attr('disabled','disabled');
+		$('#fileinput-button-t3 span').html('上传中...');
+    	var blobSlice = File.prototype.slice || File.prototype.mozSlice || File.prototype.webkitSlice,
+        file = this.files[0],
+        chunkSize = 2097152,                               // read in chunks of 2MB
+        chunks = Math.ceil(file.size / chunkSize),
+        currentChunk = 0,
+        spark = new SparkMD5.ArrayBuffer(),
+        frOnload = function(e) {
+            spark.append(e.target.result);                 // append array buffer
+            currentChunk++;
+
+            if (currentChunk < chunks) {
+                loadNext();
+            }
+            else {
+				//获取图片md5跟服务器已有图片对比
+				var md5 = spark.end();
+				$.get('iPhone5sBG.php?type=999&md5='+md5,function(fname){
+				   if(fname){
+					   var img = new Image();
+						img.src = "upimg/"+fname;
+						$(img).load(function(){
+						   document.getElementById('t3').style.background="url('"+img.src+"')";
+						   document.getElementById('bgImgt3').value=img.src;
+		$('#fileinput-button-t3').removeAttr('disabled');
+							$('#fileinput-button-t3 span').html('选择图片');
+						});
+				   }
+				   else{
+					   document.forms['form1'].submit();//图片不在服务器上，上传图片。
+					}
+				});
+            }
+        },
+        frOnerror = function () {
+            alert("图片上传出错，请点击右上角“问题反馈”提交您的问题、浏览器版本以及选择的样式。");
+        };
+
+		function loadNext() {
+			var fileReader = new FileReader();
+			fileReader.onload = frOnload;
+			fileReader.onerror = frOnerror;
+	
+			var start = currentChunk * chunkSize,
+				end = ((start + chunkSize) >= file.size) ? file.size : start + chunkSize;
+	
+			fileReader.readAsArrayBuffer(blobSlice.call(file, start, end));
+		};
+	
+		loadNext();
+	});
 	$('#chooseType').height($('#chooseType div img:first').height()+30+"px");
 	$('#chooseImg').height($('#chooseImg div img:first').height()+30+"px");
 	loaded();
@@ -212,9 +317,11 @@ function ChangeType(type){
 			break;
 	}
 }
+var c = 0;
 function getCounter(){
 	$.get("Counter.php", function(result){
 		$("#counter").html("今日已为"+result+"次 :-)");
 	});
-	setTimeout("getCounter()", 5000);
+	c<180?setTimeout("getCounter()", 3000):setTimeout("getCounter()", 6000);
+	c++;
 }

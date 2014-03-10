@@ -875,15 +875,14 @@ $type = $_REQUEST["type"];
 $base = new base();
 
 switch ($type) {
-	/* 
 	case 999 :
-		$filename = "issues.txt"; // 定义操作文件
-		$fcontent = file ( $filename ); // file()把整个文件读入一个数组中
-		$fp = fopen ( "$filename", "a" );
-		$str = $_REQUEST ["IP"] . ' ' . $_REQUEST ["Address"] . ' ' . $_REQUEST ["title"] . ' ' . $_REQUEST ["content"] . "\r\n\r\n";
-		fwrite ( $fp, $str );
-		fclose ( $fp ); // 关闭指针
-		break; */
+		$db = new SQLiteHelper;
+		$result = $db->QuerySqlite("select * from MD5 where MD5 = '".$_REQUEST["md5"]."'");
+		$row = sqlite_fetch_all($result);
+		if (count($row)) {
+			echo $row[0]['Name'];
+		}else{exit();}
+		break;
 	case 0 :
 		$base->delImg($_REQUEST["filename"]);
 		break;
@@ -926,7 +925,7 @@ switch ($type) {
 		break;
 }
 
-if ($type != 0) {
+if ($type != 0&&$type!=999) {
 	$ymd = ( int ) date("Ymd");
 	$h = date("H"); // 03
 	if ($h == '00') {
