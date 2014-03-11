@@ -1,21 +1,22 @@
 <?php
-require_once 'SQLiteHelper.php';
+require_once 'db.php';
 date_default_timezone_set('PRC');
 class base {
 	function GenerationCounter() {
 		/* 记录生成次数 */
-		$db = new SQLiteHelper;
-		$ymd = (int) date("Ymd");
-		$result = $db->QuerySqlite('select * from Counter where day = ' . $ymd);
-		$row = sqlite_fetch_all($result);
 		$g = 0;
 		$gAll = 0;
-		if (count($row)) {
-			$g = $row[0]['CounterG'];
-			$gAll = $row[0]['CounterGAll'];
-		$g++;
-		$gAll++;
-		$db->ExecSqlite('update Counter set CounterG = ' . $g . ' where day = ' . $ymd);
+		$ymd = date("Ymd");
+		$db=new DB;
+		$sql="select * from Counter where day = " . $ymd; 
+		$row=$db->get_one($sql); 
+		if ($row) {
+			$g = $row['CounterG'];
+			$g++;
+			$dataArray=array(
+			 'CounterG'=>$g
+			);
+			$db->update('Counter',$dataArray,"Day=".$ymd);
 		}
 	}
 
@@ -876,11 +877,11 @@ $base = new base();
 
 switch ($type) {
 	case 999 :
-		$db = new SQLiteHelper;
-		$result = $db->QuerySqlite("select * from MD5 where MD5 = '".$_REQUEST["md5"]."'");
-		$row = sqlite_fetch_all($result);
-		if (count($row)) {
-			echo $row[0]['Name'];
+		$db=new DB;
+		$sql="select * from FileMd5 where Md5 = '".$_REQUEST["md5"]."'";
+		$row=$db->get_one($sql); 
+		if ($row) {
+			echo $row['Name'];
 		}else{exit();}
 		break;
 	case 0 :

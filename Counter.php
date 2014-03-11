@@ -1,25 +1,33 @@
 <?php
 date_default_timezone_set('PRC');
-require_once 'SQLiteHelper.php';
+require_once 'db.php';
 //记录访问次数
 session_name('CounterV'.$ymd);
 session_start();
 $v = 0;
 $g = 0;
 $ymd = date("Ymd");
-$db = new SQLiteHelper;
-$result = $db->QuerySqlite('select * from Counter where Day = '.$ymd);
-$row = sqlite_fetch_all($result);
-if (count($row)) {
-	$v = $row[0]['CounterV'];
-	$g = $row[0]['CounterG'];
+$db=new DB;
+$sql="select * from Counter where Day = ".$ymd; 
+$row=$db->get_one($sql); 
+if ($row) {
+	$v = $row['CounterV'];
+	$g = $row['CounterG'];
 }else {
-			$db->ExecSqlite('INSERT INTO Counter (Day) VALUES (' . $ymd . ')');
-		}
+	$dataArray=array(
+     'CounterV'=>0,
+     'CounterG'=>0,
+     'Day'=>$ymd
+    );
+	$db->insert('Counter',$dataArray);
+}
 if (!isset($_SESSION['CounterV'.$ymd]))
 {
 	$v++;
-	$db->ExecSqlite('update Counter set CounterV = '.$v.' where Day = '.$ymd);
+	$dataArray=array(
+     'CounterV'=>$v
+    );
+	$db->update('Counter',$dataArray,"Day=".$ymd);
 	$_SESSION['CounterV'.$ymd] = 1;
 }
 echo $v."人服务, 生成".$g;

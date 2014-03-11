@@ -8,7 +8,7 @@ $watermark   : 是否附加水印(1为加水印,其他为不加水印);
 1. 将PHP.INI文件里面的"extension=php_gd2.dll"一行前面的;号去掉,因为我们要用到GD库;
 2. 将extension_dir =改为你的php_gd2.dll所在目录;
 ******************************************************************************/
-require_once 'SQLiteHelper.php';
+require_once 'db.php';
 date_default_timezone_set ('PRC');
 //上传文件类型列表
 $uptypes=array(
@@ -70,8 +70,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	//计算文件MD5并保存到数据库
 	$filemd5 = md5_file($destination_folder.$fname);
 	$ymd = (int) date("YmdHis");
-	$db = new SQLiteHelper;
-	$db->ExecSqlite("insert into MD5(Name,MD5,Day) values('" . $fname . "','".$filemd5."','".$ymd."')");
+	$db=new DB;
+	$dataArray=array(
+     'Name'=>$fname,
+     'Md5'=>$filemd5,
+     'Day'=>$ymd
+    );
+	$db->insert('FileMd5',$dataArray);
 	echo "<script type=\"text/javascript\" src=\"http://dt27.qiniudn.com/js/plugins.js\"></script>";
 	echo "<script type=\"text/javascript\">parent.document.getElementById('t".$id."').style.background='url(./".$destination_folder.$fname.") center no-repeat';parent.document.getElementById('bgImgt".$id."').value='".$destination_folder.$fname."';parent.$('#fileinput-button-t".$id." span').html('选择图片');parent.$('#fileinput-button-t".$id."').removeAttr('disabled');;</script>";
 }
