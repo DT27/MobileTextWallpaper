@@ -8,7 +8,14 @@ Class DB{
 	//构造函数
 	public function __construct() {
 		$this->time = $this->microtime_float();
-		require_once("config.db.php");
+		$db_config["hostname"] = "localhost"; //服务器地址
+	 	$db_config["username"] = "****"; //数据库用户名
+	 	$db_config["password"] = "****"; //数据库密码
+	 	$db_config["database"] = "****"; //数据库名称
+		$db_config["charset"] = "utf8";//数据库编码
+		$db_config["pconnect"] = 1;//开启持久连接
+		$db_config["log"] = 0;//开启日志
+		$db_config["logfilepath"] = './';//日志目录
 		$this->connect($db_config["hostname"], $db_config["username"], $db_config["password"], $db_config["database"], $db_config["pconnect"]);
 		$this->is_log = $db_config["log"];
 		if($this->is_log){

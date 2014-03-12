@@ -213,6 +213,7 @@ label {
 	padding: 5px;
 	-webkit-overflow-scrolling: touch;
 }
+#issuesModal .modal-body {padding: 20px;}
 .modal-footer {
 	padding-top: 0;
 	padding-bottom: 0;

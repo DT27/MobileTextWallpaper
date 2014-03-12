@@ -63,7 +63,7 @@ $(function(){
             }
         },
         frOnerror = function () {
-            alert("图片上传出错，请点击右上角“问题反馈”提交您的问题、浏览器版本以及选择的样式。");
+            alert("图片上传出错，请点击右上角“问题反馈”提交您的问题以及选择的样式。");
         };
 
 		function loadNext() {
@@ -117,7 +117,7 @@ $(function(){
             }
         },
         frOnerror = function () {
-            alert("图片上传出错，请点击右上角“问题反馈”提交您的问题、浏览器版本以及选择的样式。");
+            alert("图片上传出错，请点击右上角“问题反馈”提交您的问题以及选择的样式。");
         };
 
 		function loadNext() {
@@ -136,21 +136,7 @@ $(function(){
 	$('#chooseType').height($('#chooseType div img:first').height()+30+"px");
 	$('#chooseImg').height($('#chooseImg div img:first').height()+30+"px");
 	loaded();
-
-	UserVoice=window.UserVoice||[];
-	UserVoice.push(['addTrigger', '#feedback', {}]);
-	UserVoice.push(['set', {
-	  // Options can also be set on specific widgets instead of globally
-	  target: 'self', // 'none' for toaster popups, #id for a specific element on the page
-	  position: 'automatic', // Popover position
-	  height: '325px', // Widget height
-	  width: '100%', // Widget width
-	  accent_color: '#458dd6', // Widget accent color
-	  locale: 'cn', // Defaults to your account’s localization
-	  contact_title: '问题反馈'
-	}]);
-	if(document.referrer.indexOf('baidu')>=0)
-		$('#tieba').show('slow');
+	
 	$('#t3Names input').poshytip({
 		className: 'tip-twitter',
 		showOn: 'focus',
@@ -217,6 +203,31 @@ $(function(){
 		$.ajax({
 			url:'./iPhone5sBG.php?type=0&filename='+filename,
 			type:'GET'
+		});
+	});
+	/* 问题反馈 */
+	$('#issuesCreate').click(function () {
+		head.load("http://pv.sohu.com/cityjson?ie=utf-8",function() {
+			$.ajax({
+				url:'./iPhone5sBG.php',
+				type:'POST',
+				data:{
+					type:1000,
+					title:$('#issuesTitle').val(),
+					content:$('#issuesContent').val(),
+					mail:$('#issuesMail').val(),
+					ip:returnCitySN['cip'],
+					browser:head.browser.name+'_'+head.browser.version
+				},
+				success:function(){
+					$('#issuesModal').modal('hide');
+					$('#issuesTitle').val('');
+					$('#issuesContent').val('');
+					$('#bugSuccess').modal('show');
+					setTimeout("$('#bugSuccess').modal('hide')",1500);
+				}
+			});
+		
 		});
 	});
 });
@@ -317,11 +328,10 @@ function ChangeType(type){
 			break;
 	}
 }
-var c = 0;
 function getCounter(){
 	$.get("Counter.php", function(result){
 		$("#counter").html("今日已为"+result+"次 :-)");
 	});
-	c<180?setTimeout("getCounter()", 3000):setTimeout("getCounter()", 6000);
-	c++;
+	setTimeout("getCounter()", 60000);
 }
+getCounter();

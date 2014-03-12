@@ -8,7 +8,7 @@ $v = 0;
 $g = 0;
 $ymd = date("Ymd");
 $db=new DB;
-$sql="select * from Counter where Day = ".$ymd; 
+$sql="select * from Counter where Day = ".$ymd." LIMIT 1"; 
 $row=$db->get_one($sql); 
 if ($row) {
 	$v = $row['CounterV'];
@@ -27,8 +27,9 @@ if (!isset($_SESSION['CounterV'.$ymd]))
 	$dataArray=array(
      'CounterV'=>$v
     );
-	$db->update('Counter',$dataArray,"Day=".$ymd);
+	$db->update('Counter',$dataArray,"Day=".$ymd." LIMIT 1");
 	$_SESSION['CounterV'.$ymd] = 1;
 }
+unset($db);
 echo $v."人服务, 生成".$g;
 ?>

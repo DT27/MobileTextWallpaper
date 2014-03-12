@@ -8,7 +8,7 @@ class base {
 		$gAll = 0;
 		$ymd = date("Ymd");
 		$db=new DB;
-		$sql="select * from Counter where day = " . $ymd; 
+		$sql="select * from Counter where day = " . $ymd." LIMIT 1"; 
 		$row=$db->get_one($sql); 
 		if ($row) {
 			$g = $row['CounterG'];
@@ -16,8 +16,9 @@ class base {
 			$dataArray=array(
 			 'CounterG'=>$g
 			);
-			$db->update('Counter',$dataArray,"Day=".$ymd);
+			$db->update('Counter',$dataArray,"Day=".$ymd." LIMIT 1");
 		}
+		unset($db);
 	}
 
 	/**
@@ -869,17 +870,28 @@ class showText {
 }
 ?>
 <?php
-
-
-$type = 1;
 $type = $_REQUEST["type"];
 $base = new base();
 
 switch ($type) {
+	case 1000 :
+	//问题反馈
+		$db=new DB;
+		$dataArray=array(
+		 'Title'=>$_REQUEST["title"],
+		 'Content'=>$_REQUEST["content"],
+		 'IP'=>$_REQUEST["ip"],
+		 'Mail'=>$_REQUEST["mail"],
+		 'Browser'=>$_REQUEST["browser"]
+		);
+		$db->insert('FeedBack',$dataArray);
+		unset($db);
+		break;
 	case 999 :
 		$db=new DB;
-		$sql="select * from FileMd5 where Md5 = '".$_REQUEST["md5"]."'";
+		$sql="select * from FileMd5 where Md5 = '".$_REQUEST["md5"]."' LIMIT 1";
 		$row=$db->get_one($sql); 
+		unset($db);
 		if ($row) {
 			echo $row['Name'];
 		}else{exit();}
@@ -926,7 +938,7 @@ switch ($type) {
 		break;
 }
 
-if ($type != 0&&$type!=999) {
+if ($type != 0&&$type!=999&&type!=1000) {
 	$ymd = ( int ) date("Ymd");
 	$h = date("H"); // 03
 	if ($h == '00') {
