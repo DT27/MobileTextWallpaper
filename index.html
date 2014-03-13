@@ -4,7 +4,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<title>手机文字壁纸生成</title>
-		<meta name="keywords" content="文字壁纸,手机文字壁纸,iphone5s文字壁纸,手机壁纸,手机文字壁纸生成"/>
+		<meta name="keywords" content="文字壁纸,手机文字壁纸,手机控文字壁纸,手机文字壁纸生成"/>
 		<meta name="description" content="给喜欢的壁纸加上个性文字，励志名言，表达爱意，展示心情，想写什么就写什么的文字控神器！希望大家都能够拥有自己喜欢的个性文字壁纸~~~" />
 		<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" />
         <meta name="browsermode" content="application"/>
@@ -33,37 +33,42 @@
 	</head>
 
 	<body>
-		<ol class="breadcrumb">
+    
+    <div class="navbar navbar-default">
+    <div class="container">
+  <div class="navbar-header">
+    <a class="navbar-brand" href="/">手机文字壁纸生成</a>
+    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+  </div>
+  <div class="navbar-collapse collapse navbar-responsive-collapse" id="navbar-main">
+    <ul class="nav navbar-nav navbar-right">
 			<li><a href="javascript:ChangeType(1);bootstro.start('.bootstro');">新手向导</a></li>
 			<li><a href="http://tieba.baidu.com/p/2862988715" target="_blank">贴吧互动</a></li>
 			<li><a href="javascript:$('#issuesModal').modal('show');">问题反馈</a></li>
-		</ol>
+    </ul>
+  </div>
+    </div>
+</div>
+    
 		<!-- style="display:none;"
 		-->
 		<form class="form-signin" role="form" id="form1" action="uJ6Yvus8nGwH6.php" enctype="multipart/form-data" method="post" target="ifm">
 			<div class="container" id="top">
             <p class="alert alert-danger">遇到任何问题请点击右上角“问题反馈”告诉我，我会尽快修复并回复。</p>
-		<div class="alert-info" align="left">　　样式正在不断增加中<br />　　暂时生成的壁纸都是5s尺寸，其他手机等以后吧。<br />　　图片上传速度取决于您的网络。请谨慎使用移动流量。</div>
+		<div class="alert alert-info" align="left">　　样式正在不断增加中<br />　　暂时生成的壁纸都是5s尺寸，其他手机等以后吧。<br />　　图片上传速度取决于您的网络。请谨慎使用移动流量。</div>
 				<!--
 				-->
-				<div class="panel-group" id="accordionSizeInfo">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordion" href="#sizeInfo">
-									iPhone5s壁纸尺寸说明
-								</a>
-							</h4>
-						</div>
-						<div id="sizeInfo" class="panel-collapse collapse">
-							<div class="panel-body" align="left">	　　iPhone5s的动态效果会使壁纸有立体效果，原理是将壁纸放大，屏幕默认显示的只是壁纸中间部分，当手机转动时，系统会向反方向移动壁纸，产生立体效果。<br />	　　所以，5s自带壁纸尺寸都是744x1392，而不是屏幕分辨率的640x1136。如果你用640x1136的壁纸，还想壁纸全部显示在屏幕上，就必须到设置>辅助功能里开启减少动态效果。<br />　　样式里默认的尺寸全部是744x1392，不受动态效果开关影响。
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="bg-primary bootstro" id="chooseType" data-bootstro-title='新手向导第一步' data-bootstro-content="选择样式，向导过程中请选择第一个样式" data-bootstro-width="350px" data-bootstro-placement='top' data-bootstro-step='0'>
+                <div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">样式选择</h3>
+  </div>
+  <div class="panel-body"><div id="chooseType">
                     <div id="scrollable" data-scrollable="x">
-                        <img src="http://dt27.qiniudn.com/img/p2.jpg" alt="样式2" class="img-thumbnail type" id="type1" onclick="ChangeType(1);">
+                        <img src="http://dt27.qiniudn.com/img/p2.jpg" alt="样式2" class="img-thumbnail type bootstro" id="type1" onclick="ChangeType(1);" data-bootstro-title='新手向导第一步' data-bootstro-content="选择样式，向导过程中请选择第一个样式" data-bootstro-width="350px" data-bootstro-placement='right' data-bootstro-step='0'>
                         <img src="http://dt27.qiniudn.com/img/p3.jpg" alt="样式1" class="img-thumbnail type" id="type3" onclick="ChangeType(3);">
                         <img src="http://dt27.qiniudn.com/img/p4.jpg" alt="样式3" class="img-thumbnail type" id="type4" onclick="ChangeType(4);">
                         <img src="http://dt27.qiniudn.com/img/p5.jpg" alt="样式5" class="img-thumbnail type" id="type5" onclick="ChangeType(5);">
@@ -72,6 +77,9 @@
                         <img src="http://dt27.qiniudn.com/img/p8.jpg" alt="样式8" class="img-thumbnail type" id="type8" onclick="ChangeType(8);">
                     </div>
                 </div>
+  </div>
+</div>
+				
 			</div>
 			<div class="container" id="t1">
             <!-- <p class="alert-danger">此样式升级改进中，暂时无法正常使用<br />
@@ -260,7 +268,7 @@
 				-->
 				<div class="btn-group btn-group-sm" id="sexGroup6">
 					<input type="hidden" name="sex6" id="sex6" value="2" />
-					<button type="button" class="btn btn-default active" onclick="$('#sex6').val(2);$('#sexGroup6 button').removeClass('active');$(this).addClass('active');$('#t6').css('background','url(http://dt27.qiniudn.com/img/62.jpg)');">合体版</button>
+					<button type="button" class="btn btn-default active" onclick="$('#sex6').val(2);$('#sexGroup6 button').removeClass('active');$(this).addClass('active');$('#t6').css('background','url(http://dt27.qiniudn.com/img/62.jpg) center no-repeat');">合体版</button>
 					<button type="button" class="btn btn-default" onclick="$('#sex6').val(0);$('#sexGroup6 button').removeClass('active');$(this).addClass('active');$('#t6').css('background','url(http://dt27.qiniudn.com/img/60.jpg) center no-repeat');">女生版</button>
 					<button type="button" class="btn btn-default" onclick="$('#sex6').val(1);$('#sexGroup6 button').removeClass('active');$(this).addClass('active');$('#t6').css('background','url(http://dt27.qiniudn.com/img/61.jpg) center no-repeat');">男生版</button>
 				</div>
@@ -288,27 +296,17 @@
 				<input type="hidden" name="type" id="type" value="11" />
 				<div class="bootstro" data-bootstro-title='新手向导第④步' data-bootstro-content="点击生成按钮来生成图片" data-bootstro-width="350px" data-bootstro-placement='top' data-bootstro-step='3'>
                 <button type="button" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#myModal" id="create" bootstro-next-btn>☞ 生成 </button></div>
-				<!-- JiaThis Button BEGIN --><div class="alert alert-success">
-					<div class="jiathis_style_32x32">
-						<span>&nbsp;分享&nbsp;</span><a class="jiathis_button_qzone"></a>
-						<a class="jiathis_button_tsina"></a>
-						<a class="jiathis_button_tqq"></a>
-						<a class="jiathis_button_renren"></a>
-						<a href="http://www.jiathis.com/share?uid=895611" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-						<a class="jiathis_counter_style"></a>
-					</div></div>
-				<!-- JiaThis Button END -->
-<div id="counter"></div>
-				<p class="alert alert-success pay">欢迎赞助支持本服务 <a href='http://me.alipay.com/dt27' target="_blank" title="支付宝赞助">支付宝</a></p>
 			</div>
 			<!-- /container t4 -->
 		</form>
-		<!-- Modal -->
+        <!-- Modal -->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<p class="alert-info" id="loadInfo">复杂背景加载较慢，请耐心等待</p>
-					<div class="modal-body" style="text-align:center;"><button type="submit" class="btn btn-lg btn-success btn-block" data-dismiss="modal">返回</button> <div  class="bootstro" data-bootstro-title='新手向导最后一步' data-bootstro-content="等待图片加载完成，长按图片进行保存。Enjoy!" data-bootstro-width="350px" data-bootstro-placement='top' data-bootstro-step='4'><img id="loadingImg" src="http://dt27.qiniudn.com/img/loading.gif" width="145" height="28"/></div> <button type="submit" class="btn btn-lg btn-success btn-block" data-dismiss="modal">返回</button> </div>
+					<div class="modal-body" style="text-align:center;"><button type="submit" class="btn btn-lg btn-success btn-block" data-dismiss="modal">返回</button> <div  class="bootstro" data-bootstro-title='新手向导最后一步' data-bootstro-content="等待图片加载完成，长按图片进行保存。Enjoy!" data-bootstro-width="350px" data-bootstro-placement='top' data-bootstro-step='4'><div class="progress" id="loadingImg">
+  <div class="progress-bar progress-bar-info" style="width: 20%"></div>
+</div></div> <button type="submit" class="btn btn-lg btn-success btn-block" data-dismiss="modal">返回</button> </div>
                     <div class="modal-footer" id="bottom">&nbsp;</div>
 				</div>
 			</div>
@@ -325,7 +323,7 @@
 							<label for="issuesTitle">标题（必填）</label>
 							<input type="text" class="form-control" placeholder="必填" name="issuesTitle" id="issuesTitle" autocomplete="off" autofocus /></div><div class="form-group">
 							<label for="issuesContent">描述（选填，复杂问题请详细描述）</label>
-							<textarea class="form-control" rows="6" name="issuesContent" id="issuesContent"></textarea>
+							<textarea class="form-control" rows="4" name="issuesContent" id="issuesContent"></textarea>
                             </div><div class="form-group">
                             <label for="issuesMail">邮箱（选填，方便回复您）</label>
                             <input type="email" class="form-control" placeholder="email@example.com" name="issuesMail" id="issuesMail" autocomplete="on" /></div><div class="form-group">
@@ -344,6 +342,19 @@
 			</div>
 		</div>
 		<!-- 反馈 End -->
+        <!-- JiaThis Button BEGIN --><div class="alert alert-success">
+					<div class="jiathis_style_32x32">
+						<span>分享&nbsp;</span><a class="jiathis_button_qzone"></a>
+						<a class="jiathis_button_tsina"></a>
+						<a class="jiathis_button_tqq"></a>
+						<a class="jiathis_button_renren"></a>
+						<a href="http://www.jiathis.com/share?uid=895611" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+						<a class="jiathis_counter_style"></a>
+					</div></div>
+				<!-- JiaThis Button END -->
+<div id="counter"></div>
+				<p class="alert alert-success pay">欢迎赞助支持本服务 <a href='http://me.alipay.com/dt27' target="_blank" title="支付宝赞助">支付宝</a></p>
+		
 		<div style="display:none">
 			<script type="text/javascript" src="http://s13.cnzz.com/stat.php?id=5811191&web_id=5811191"></script>
 		</div>

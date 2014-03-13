@@ -169,7 +169,7 @@ $(function(){
 	});
 
 	var loading = $('#loadingImg');
-	var result;
+	var result = $('#resultImg');;
 	$('#myModal').on('show.bs.modal', function (e) {
 		_czc.push(["_trackEvent", "手机文字壁纸生成","点击","生成"]);
 		if($(".popover").is(":visible"))
@@ -182,11 +182,10 @@ $(function(){
 			data:$('input').serialize(), //序列化表单的值
 			success: function(src){
 				$('#loadInfo').slideUp('fast').html("文字壁纸生成成功，加载中···<br />(背景复杂的文字壁纸加载较慢，请耐心等待)").slideDown('fast');
-				filename=src;
 				var img = new Image();
-				img.src = filename;
+				img.src = src;
 				$(img).load(function(){
-					result=$("<img src=\""+this.src+"\" width=\"100%\" />");
+					result=$("<img id=\"resultImg\" src=\""+src+"\" width=\"100%\" />");
 					$('#loadInfo').slideUp('fast').html("手机浏览器长按图片保存 <br /> 若无法保存，请使用自带safari浏览器").slideDown('fast');
 					loading.hide();
         			loading.after(result);
@@ -221,8 +220,6 @@ $(function(){
 				},
 				success:function(){
 					$('#issuesModal').modal('hide');
-					$('#issuesTitle').val('');
-					$('#issuesContent').val('');
 					$('#bugSuccess').modal('show');
 					setTimeout("$('#bugSuccess').modal('hide')",1500);
 				}
