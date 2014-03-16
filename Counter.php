@@ -2,8 +2,6 @@
 date_default_timezone_set('PRC');
 require_once 'db.php';
 //记录访问次数
-session_name('CounterV'.$ymd);
-session_start();
 $v = 0;
 $g = 0;
 $ymd = date("Ymd");
@@ -21,14 +19,14 @@ if ($row) {
     );
 	$db->insert('Counter',$dataArray);
 }
-if (!isset($_SESSION['CounterV'.$ymd]))
+if (!$_COOKIE["CounterV".$ymd])
 {
 	$v++;
 	$dataArray=array(
      'CounterV'=>$v
     );
 	$db->update('Counter',$dataArray,"Day=".$ymd." LIMIT 1");
-	$_SESSION['CounterV'.$ymd] = 1;
+	setcookie("CounterV".$ymd, "1", time()+86400);
 }
 unset($db);
 echo $v."人服务, 生成".$g;

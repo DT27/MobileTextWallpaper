@@ -28,6 +28,7 @@ function loaded () {
 }
 document.body.ondragstart=function(){return false;};
 $(function(){
+	if(head.mobile) $('#title').html('文字壁纸');
 	document.getElementById("upfilet1").addEventListener("change", function() {
 		$('#fileinput-button-t1').attr('disabled','disabled');
 		$('#fileinput-button-t1 span').html('上传中...');
@@ -133,8 +134,6 @@ $(function(){
 	
 		loadNext();
 	});
-	$('#chooseType').height($('#chooseType div img:first').height()+30+"px");
-	$('#chooseImg').height($('#chooseImg div img:first').height()+30+"px");
 	loaded();
 	
 	$('#t3Names input').poshytip({
@@ -171,9 +170,6 @@ $(function(){
 	var loading = $('#loadingImg');
 	var result = $('#resultImg');;
 	$('#myModal').on('show.bs.modal', function (e) {
-		_czc.push(["_trackEvent", "手机文字壁纸生成","点击","生成"]);
-		if($(".popover").is(":visible"))
-			bootstro.next();
 		$('#loadInfo').html("文字壁纸生成中···");
 		
 		$.ajax({
@@ -194,8 +190,6 @@ $(function(){
 		});
 	})
 	$('#myModal').on('hidden.bs.modal', function (e) {
-		if($(".popover").is(":visible"))
-			bootstro.stop();
 		result.remove();
 		loading.show();
 		$('#loadInfo').html("");
@@ -269,6 +263,7 @@ function CurentTime()
 
 function ChangeType(type){
 	if($('#type').val()==type)return;
+	$('#font').val(0);
 	$('#type').val(type);
 	document.getElementById('t1').style.display='none';
 	document.getElementById('t3').style.display='none';
@@ -277,6 +272,7 @@ function ChangeType(type){
 	document.getElementById('t6').style.display='none';
 	document.getElementById('t7').style.display='none';
 	document.getElementById('t8').style.display='none';
+	document.getElementById('t9').style.display='none';
 	$('.type').css("borderColor","white");
 	$('.type').css("backgroundColor","white");
 	$('#type'+type).css("borderColor","red");
@@ -290,11 +286,17 @@ function ChangeType(type){
 			document.getElementById('bgImgt1').value = "img/11.jpg";
 			break;
 		case 3:
+			$('#font').val(1);
+			document.getElementById('t'+type).style.display='block';
+			document.getElementById('bgImgt1').value = "";
+			document.getElementById('bgImgt3').value = "";
+			break;
 		case 4:
 		case 5:
 		case 6:
 		case 7:
 		case 8:
+		case 9:
 			document.getElementById('t'+type).style.display='block';
 			document.getElementById('bgImgt1').value = "";
 			document.getElementById('bgImgt3').value = "";
@@ -305,16 +307,6 @@ function ChangeType(type){
 			document.getElementById('t1').style.display='block';
 			$('#t1').css("background",'none #'+$('#colorPickerT1').val());
 			document.getElementById('bgImgt1').value = "";
-			break;
-		case 11:
-		case 12:
-		case 13:
-		case 14:
-			$('#type1').css("borderColor","red");
-			$('#type1').css("backgroundColor","red");
-			document.getElementById('t1').style.display='block';
-			$('#t1').css('background','url(http://dt27.qiniudn.com/img/'+type+'bg.jpg) center no-repeat');
-			document.getElementById('bgImgt1').value = "img/"+type+".jpg";
 			break;
 		default:
 			$('#type1').css("borderColor","red");

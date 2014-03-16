@@ -208,6 +208,7 @@ class showChinaText {
 	var $text; // = '你他妈吃天胆了？';
 	var $font = 'fonts/wryh.ttf'; // 如果没有要自己加载到相应的目录下（本地www）
 	var $fonthei = 'fonts/simhei.ttf'; //黑体
+	var $fontshouxie = 'fonts/jybxs.ttf';//中文手写字体
 	var $bgpic;
 	var $logo;
 	var $finger;
@@ -224,7 +225,12 @@ class showChinaText {
 	var $showY1 = 1005;
 	var $text2; // = '我这是5S，指纹解锁';
 	var $showY2 = 1060;
-	function __construct($text4, $text, $text0, $text3, $text1, $text2, $type, $finger, $logo, $colorT1, $colorTText, $bgImg) {
+	function __construct($text4, $text, $text0, $text3, $text1, $text2, $type, $finger, $logo, $colorT1, $colorTText, $bgImg, $font) {
+		if (isset ($font)) {
+			if($font==1){
+				$this->font=$this->fontshouxie;
+			}
+		}
 		if (isset ($bgImg)) {
 			$this->bgImg = $bgImg;
 		}
@@ -417,7 +423,7 @@ class showLoveText {
 			$this->bgImgt3 = $bgImgt3;
 		}
 		if (isset ($fontName)) {
-			if ($fontName == 1) {
+			if ($fontName == 0) {
 				$this->fontName = 'fonts/wryh.ttf';
 				$this->nameSize = 30;
 			}
@@ -575,7 +581,7 @@ class showLoveText {
 		imagettftext($image, 36, 0, $this->showX4, $this->showY4, $textColor, $this->fonten, $txt4);
 
 		$fbox = imagettfbbox($this->nameSize, 0, $this->fontName, $loveName1); // (744-$fbox[2])/2
-		imagettftext($image, $this->nameSize, 0, 744 - 215 - $fbox[2], $this->showYName1, $textColor, $this->fontName, $loveName1);
+		imagettftext($image, $this->nameSize, 0, $this->showXName1, $this->showYName1, $textColor, $this->fontName, $loveName1);
 		imagettftext($image, $this->nameSize, 0, $this->showXName2, $this->showYName2, $textColor, $this->fontName, $loveName2);
 
 		echo $base->saveImg($image);
@@ -594,6 +600,8 @@ class showText {
 	var $font8 = 'fonts/fzxkgbk.ttf'; //方正行楷_GBK
 	var $fontwryh = 'fonts/wryh.ttf';
 	var $fontCountryWesten = 'fonts/CountryWesten.ttf';
+	var $fonten = 'fonts/ElegantScript.ttf';
+	var $fontMaobi = 'fonts/ygymbxs.ttf';//毛笔
 	var $bgpic = 'img/4.jpg';
 	var $color = 1;
 	var $type;
@@ -741,18 +749,30 @@ class showText {
 					$this->text0 = $text0;
 				}
 				break;
+			case 9 :
+				$this->bgpic = "img/9.jpg";
+				if (isset ($text1)) {
+					$this->text1 = $text1;
+				}
+				if (isset ($text)) {
+					$this->text = $text;
+				}
+				if (isset ($text0)) {
+					$this->text0 = $text0;
+				}
+				break;
 		}
 	}
 	function show() {
 		// Header ( "Content-type: image/png" );
 		$base = new base();
 
+		$image = imagecreatetruecolor(744, 1392);
+		$white = ImageColorAllocate($image, 255, 255, 255);
+		$black = ImageColorAllocate($image, 0, 0, 0);
 		switch ($this->type) {
 			case 4 :
 				$image = imagecreatefromjpeg($this->bgpic);
-				$red = ImageColorAllocate($image, 255, 0, 0);
-				$white = ImageColorAllocate($image, 255, 255, 255);
-				$black = ImageColorAllocate($image, 0, 0, 0);
 				$txt = $base->createText($this->text);
 				$txt0 = $base->createText($this->text0);
 				imagettftext($image, 48, -24, $this->showX, $this->showY, $white, $this->font, $txt);
@@ -760,8 +780,6 @@ class showText {
 				echo $base->saveImg($image);
 				break;
 			case 5 :
-				// 建立图象
-				$image = imagecreatetruecolor(744, 1392);
 				// $image = imagecreatefromjpeg ( $this->bgpic ); //这里的图片，换成你的图片路径
 				// 定义颜色
 				$boy = ImageColorAllocate($image, 33, 167, 221);
@@ -801,7 +819,6 @@ class showText {
 				break;
 			case 6 :
 				$image = imagecreatefromjpeg($this->bgpic);
-				$white = ImageColorAllocate($image, 255, 255, 255);
 				$txt = $base->createText($this->text);
 				$fbox = imagettfbbox($this->size, 0, $this->font6, $txt); // (744-$fbox[2])/2
 				if ($fbox[2] > 360)
@@ -822,8 +839,6 @@ class showText {
 				echo $base->saveImg($image);
 				break;
 			case 7 :
-				$image = imagecreatetruecolor(744, 1392);
-				$black = ImageColorAllocate($image, 0, 0, 0);
 				$bgColor = ImageColorAllocate($image, 240, 236, 225);
 				imagefilledrectangle($image, 0, 0, 744, 1392, $bgColor); // 图片着色
 				// PNG水印图
@@ -845,7 +860,6 @@ class showText {
 				break;
 			case 8 :
 				$image = imagecreatefromjpeg($this->bgpic);
-				$black = ImageColorAllocate($image, 0, 0, 0);
 
 				$txt = $base->createText($this->text);
 				$txt0 = $base->createText($this->text0);
@@ -853,7 +867,7 @@ class showText {
 				//判断是否有中文
 				if (!preg_match("/[\x7f-\xff]/", $this->text1)) {
 					$fbox = imagettfbbox(60, 0, $this->fontCountryWesten, $txt1); // (744-$fbox[2])/2
-					imagettftext($image, 60, 0, (744 - $fbox[2]) / 2, 563, $black, $this->fontCountryWesten, $txt1);
+					imagettftext($image, 60, 0, (744 - $fbox[2]) / 2, 563, $white, $this->fontCountryWesten, $txt1);
 				} else {
 					$fbox = imagettfbbox(30, 0, $this->fontwryh, $txt1); // (744-$fbox[2])/2
 					imagettftext($image, 30, 0, (744 - $fbox[2]) / 2, 563, $black, $this->fontwryh, $txt1);
@@ -862,6 +876,21 @@ class showText {
 				imagettftext($image, 46, 0, (744 - $fbox[2]) / 2, 875, $black, $this->font8, $txt);
 				$fbox = imagettfbbox(30, 0, $this->fontwryh, $txt0); // (744-$fbox[2])/2
 				imagettftext($image, 30, 0, (744 - $fbox[2]) / 2, 950, $black, $this->fontwryh, $txt0);
+
+				echo $base->saveImg($image);
+				break;
+			case 9 :
+				$image = imagecreatefromjpeg($this->bgpic);
+
+				$txt1 = $base->createText($this->text1);
+				$txt = $base->createText($this->text);
+				$txt0 = $base->createText($this->text0);
+				$fbox = imagettfbbox(58, 0, $this->fontMaobi, $txt1);
+				imagettftext($image, 58, 0, (744 - $fbox[2]) / 2, 585, $white, $this->fontMaobi, $txt1);
+				$fbox = imagettfbbox(48, 0, $this->fonten, $txt);
+				imagettftext($image, 48, 0, (744 - $fbox[2]) / 2, 720, $white, $this->fonten, $txt);
+				$fbox = imagettfbbox(46, 0, $this->fontshouxie, $txt0);
+				imagettftext($image, 46, 0, (744 - $fbox[2]) / 2, 930, $white, $this->fontshouxie, $txt0);
 
 				echo $base->saveImg($image);
 				break;
@@ -923,13 +952,17 @@ switch ($type) {
 		$s = new showText($_REQUEST["t80"], $_REQUEST["t81"], $_REQUEST["t82"], 8, null);
 		$s->show();
 		break;
+	case 9 :
+		$s = new showText($_REQUEST["t90"], $_REQUEST["t91"], $_REQUEST["t92"], 9, null);
+		$s->show();
+		break;
 	case 1 :
 	case 10 :
 	case 11 :
 	case 12 :
 	case 13 :
 	case 14 :
-		$s = new showChinaText($_REQUEST["text4"], $_REQUEST["text"], $_REQUEST["text0"], $_REQUEST["text3"], $_REQUEST["text1"], $_REQUEST["text2"], $type, $_REQUEST["finger"], $_REQUEST["logo"], $_REQUEST["colorT1"], $_REQUEST["colorTText"], $_REQUEST["bgImgt1"]);
+		$s = new showChinaText($_REQUEST["text4"], $_REQUEST["text"], $_REQUEST["text0"], $_REQUEST["text3"], $_REQUEST["text1"], $_REQUEST["text2"], $type, $_REQUEST["finger"], $_REQUEST["logo"], $_REQUEST["colorT1"], $_REQUEST["colorTText"], $_REQUEST["bgImgt1"], $_REQUEST["font"]);
 		$s->show();
 		break;
 	default :

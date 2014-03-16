@@ -4,9 +4,19 @@ body{
 	padding:0;
 	margin:0;
 }
+.container{border-radius: 4px;}
+.container .panel-body{ padding:5px;}
+.secondtitle{ width:40%; margin:5px auto;}
+.navbar-brand{
+	float: left;
+padding: 0px 15px;
+font-size: 19px;
+line-height: 40px;
+height: 40px;}
+.navbar-toggle{margin-top:0;margin-bottom:0;}
+#loadInfo{text-align:center;}
+.mycollapse{ text-decoration:underline;}
 .img-thumbnail{ background-color:#FFF;}
-#myTab>li>a,#myTabt3>li>a{ background-color:#999;}
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{background-color: #2b3e50 !important;}
 .form-control{ border:1px solid #39C !important;}
 .form-control:focus{ border:1px solid #3CF !important;}
 .form-signin input[type="text"] {
@@ -14,19 +24,19 @@ body{
 	font-weight: bold;
 	BACKGROUND: none transparent scroll repeat 0% 0%;
 }
-.form-signin input[name="text"] {
+.form-signin input[name="text"],.form-signin input[name="t71"],.form-signin input[name="t81"],.form-signin input[name="t90"] {
 	margin-bottom: -1px;
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
 }
-.form-signin input[name="text0"] {
+.form-signin input[name="text0"],.form-signin input[name="t91"] {
 	margin-bottom: -1px;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
 }
-.form-signin input[name="text3"] {
+.form-signin input[name="text3"],.form-signin input[name="t72"],.form-signin input[name="t82"],.form-signin input[name="t92"] {
 	margin-bottom: 5px;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
@@ -79,11 +89,12 @@ body{
 	border-top-right-radius: 0;
 }
 #chooseType{
+	height:170px;
 	padding:5px;
-	 white-space:nowrap;
-	 min-height:124px;
-	 height:236px;overflow: hidden;position: relative;}
-#chooseType #scrollable { padding: 5px; position: absolute; width:140%;
+	white-space:nowrap;
+	overflow: hidden;position: relative;
+}
+#chooseType #scrollable { padding: 5px; position: absolute; width:690px;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	-webkit-transform: translateZ(0);
 	-moz-transform: translateZ(0);
@@ -101,17 +112,17 @@ body{
 	-o-text-size-adjust: none;
 	text-size-adjust: none;}
 #chooseType img {
-	width: 13%;
+	width: 80px;
 }
 #chooseImg{
+	height:170px;
 	white-space: nowrap;
 	padding-top:5px;
-	 min-height:124px;
-	height:200px;overflow: hidden;position: relative;}
+	overflow: hidden;position: relative;}
 #chooseBg img {
-	width: 6%;
+	width: 80px;
 }
-#chooseImg #scrollable { padding: 5px; position: absolute; width:250%;
+#chooseImg #scrollable { padding: 5px; position: absolute; width:1300px;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	-webkit-transform: translateZ(0);
 	-moz-transform: translateZ(0);
@@ -129,7 +140,7 @@ body{
 	-o-text-size-adjust: none;
 	text-size-adjust: none;}
 
-.alert{white-space:normal;}
+.alert{white-space:normal; margin-bottom:10px;}
 .img-thumbnail {
 	cursor: pointer;
 }
@@ -139,18 +150,17 @@ body{
 	border-top-right-radius: 0;border: 1px solid #bce8f1;
 }
 #chooseBg .panel{ background:none;border-radius:0;}
-#chooseBg,#colorBg{background:none;
+#chooseBg,#colorBg{
+	padding:0px;
+	background:none;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;}
 #chooseBg .panel-heading{border-radius:0;}
 .container {
-	max-width: 1170px;
+	max-width: 750px;
 	min-width: 300px;
-	padding-left: 0;
-	padding-right: 0;
-	padding-bottom: 5px;
+	padding:5px 0 5px 0;
 	height: 100%;
-	border-radius: 5px;
 }
 #t1 {
 	background-color: #e4d7c7;
@@ -166,12 +176,16 @@ body{
 	background-color: #f1e9de;
 	display: none;
 }
+#t4 {
+	background-color: #000;
+}
 #t3 input[type='text']{color:#2b3e50;}
+#t7 input[type='text'],#t8 input[type='text']{color:#000;}
 #t1{background:url(http://dt27.qiniudn.com/img/11bg.jpg) center no-repeat;}
-#t4,#t8 {
+#t4,#t8,#t9 {
 	display: none;
 }
-#t1, #t2, #t3, #t4 {
+.container {
 	padding-left: 10px;
 	padding-right: 10px;
 }
@@ -182,7 +196,7 @@ body{
 #t6{
 	height:600px;
 	background: url(http://dt27.qiniudn.com/img/62.jpg) center no-repeat;
-   background-size:cover !important;
+   	background-size:cover !important;
 	display: none;
 }
 #t6 #sexGroup6{padding-top: 20px;}
@@ -193,10 +207,15 @@ body{
 #t7{
 	background-color:#f0ece1; display:none;}
 #t8{ background:url(http://dt27.qiniudn.com/img/8bg.gif) repeat;}
-#t8 input[type='text']{
-	text-align:center;}
+#t8 input[type='text'],#t9 input[type='text']{
+	text-align:center;
+}
+#t9{
+	background: url(../img/9bg.jpg) center no-repeat;
+   	background-size:cover !important;
+}
 #top {
-	max-width: 1170px;
+	max-width: 750px;
 	min-width: 300px;
 	margin: 0 auto;
 	text-align: center;
@@ -210,9 +229,6 @@ body{
 }
 #colorPickerT3Text {
 	background-color: #000;
-}
-#bottom {
-	padding-bottom: 50px;
 }
 .form-signin {
 	margin: 0 auto;
@@ -458,3 +474,4 @@ margin-bottom: 0;
 }
 #md5{color:#FFF;}
 .btn-group-sm button{height:31px;}
+.alert-danger{color:red; font-weight:bold;}
