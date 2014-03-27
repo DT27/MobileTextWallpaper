@@ -172,6 +172,8 @@ height: 40px;}
 	padding-bottom: 50px;
    background-size:cover !important;
 }
+#logoImg{max-width:350px;}
+#fingerImg{max-width:100px;}
 #t3 {
 	background-color: #f1e9de;
 	display: none;

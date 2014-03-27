@@ -317,6 +317,12 @@ class showChinaText {
 				case 4 :
 					$imgSrcLogo = "img/apple_logo_white.png";
 					break;
+				case 5 :
+					$imgSrcLogo = "img/iphone5_title.png";
+					break;
+				case 6 :
+					$imgSrcLogo = "img/iphone5_title_white.png";
+					break;
 			}
 			$srcimLogo = imagecreatefrompng($imgSrcLogo);
 			$srcImgLogo_w = imagesx($srcimLogo);
