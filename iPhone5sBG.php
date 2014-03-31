@@ -972,7 +972,7 @@ switch ($type) {
 		$s->show();
 		break;
 	default :
-		$s = new showChinaText($_REQUEST["text4"], $_REQUEST["text"], $_REQUEST["text0"], $_REQUEST["text3"], $_REQUEST["text1"], $_REQUEST["text2"], $type, $_REQUEST["finger"], $_REQUEST["logo"], $_REQUEST["colorT1"], $_REQUEST["colorTText"], $_REQUEST["bgImgt1"]);
+		$s = new showChinaText($_REQUEST["text4"], $_REQUEST["text"], $_REQUEST["text0"], $_REQUEST["text3"], $_REQUEST["text1"], $_REQUEST["text2"], $type, $_REQUEST["finger"], $_REQUEST["logo"], $_REQUEST["colorT1"], $_REQUEST["colorTText"], $_REQUEST["bgImgt1"], $_REQUEST["font"]);
 		$s->show();
 		break;
 }
