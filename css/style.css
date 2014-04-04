@@ -24,7 +24,7 @@ height: 40px;}
 	font-weight: bold;
 	BACKGROUND: none transparent scroll repeat 0% 0%;
 }
-.form-signin input[name="text"],.form-signin input[name="t71"],.form-signin input[name="t81"],.form-signin input[name="t90"] {
+.form-signin input[name="text"],.form-signin input[name="t71"],.form-signin input[name="t81"],.form-signin input[name="t90"],.form-signin input[name="t1001"]  {
 	margin-bottom: -1px;
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
@@ -36,7 +36,7 @@ height: 40px;}
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
 }
-.form-signin input[name="text3"],.form-signin input[name="t72"],.form-signin input[name="t82"],.form-signin input[name="t92"] {
+.form-signin input[name="text3"],.form-signin input[name="t72"],.form-signin input[name="t82"],.form-signin input[name="t92"],.form-signin input[name="t1002"]  {
 	margin-bottom: 5px;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
@@ -94,7 +94,7 @@ height: 40px;}
 	white-space:nowrap;
 	overflow: hidden;position: relative;
 }
-#chooseType #scrollable { padding: 5px; position: absolute; width:690px;
+#chooseType #scrollable { padding: 5px; position: absolute; width:790px;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	-webkit-transform: translateZ(0);
 	-moz-transform: translateZ(0);
@@ -183,10 +183,12 @@ height: 40px;}
 }
 #t3 input[type='text']{color:#2b3e50;}
 #t7 input[type='text'],#t8 input[type='text']{color:#000;}
-#t1{background:url(http://dt27.qiniudn.com/img/11bg.jpg) center no-repeat;}
-#t4,#t8,#t9 {
+#t1{background:url(../img/11bg.jpg) center no-repeat;}
+#t4,#t8,#t9,#t100 {
 	display: none;
 }
+#t100{
+	background-color: #000; text-align:center;}
 .container {
 	padding-left: 10px;
 	padding-right: 10px;
@@ -197,7 +199,7 @@ height: 40px;}
 }
 #t6{
 	height:600px;
-	background: url(http://dt27.qiniudn.com/img/62.jpg) center no-repeat;
+	background: url(../img/62.jpg) center no-repeat;
    	background-size:cover !important;
 	display: none;
 }
@@ -208,7 +210,7 @@ height: 40px;}
 }
 #t7{
 	background-color:#f0ece1; display:none;}
-#t8{ background:url(http://dt27.qiniudn.com/img/8bg.gif) repeat;}
+#t8{ background:url(../img/8bg.gif) repeat;}
 #t8 input[type='text'],#t9 input[type='text']{
 	text-align:center;
 }
@@ -270,7 +272,7 @@ h2, h3, h4, h5, .h5, h6, .h6 {
 	font-size: 16px;
 }
 #t3 .row {
-	background: url(http://dt27.qiniudn.com/img/heart.png) 75% 0 no-repeat;
+	background: url(../img/heart.png) 75% 0 no-repeat;
 	max-height: 186px;
 	min-height: 92px;
 	background-size: 20%
@@ -332,7 +334,7 @@ label {
 	left: 50%;
 	width: 9px;
 	height: 5px;
-	background: url(http://dt27.qiniudn.com/img/tip-twitter_arrows.gif) no-repeat;
+	background: url(../img/tip-twitter_arrows.gif) no-repeat;
 }
 .tip-twitter .tip-arrow-right {
 	margin-top: -4px;
@@ -341,7 +343,7 @@ label {
 	left: 100%;
 	width: 5px;
 	height: 9px;
-	background: url(http://dt27.qiniudn.com/img/tip-twitter_arrows.gif) no-repeat -9px 0;
+	background: url(../img/tip-twitter_arrows.gif) no-repeat -9px 0;
 }
 .tip-twitter .tip-arrow-bottom {
 	margin-top: 0;
@@ -350,7 +352,7 @@ label {
 	left: 50%;
 	width: 9px;
 	height: 5px;
-	background: url(http://dt27.qiniudn.com/img/tip-twitter_arrows.gif) no-repeat -18px 0;
+	background: url(../img/tip-twitter_arrows.gif) no-repeat -18px 0;
 }
 .tip-twitter .tip-arrow-left {
 	margin-top: -4px;
@@ -359,7 +361,7 @@ label {
 	left: 0;
 	width: 5px;
 	height: 9px;
-	background: url(http://dt27.qiniudn.com/img/tip-twitter_arrows.gif) no-repeat -27px 0;
+	background: url(../img/tip-twitter_arrows.gif) no-repeat -27px 0;
 }
 /* 颜色选择器 */
 .iColorPicker, input[class='iColorPicker']:focus {
@@ -426,7 +428,7 @@ label {
 .jiathis_style_32x32 .jiathis_counter.jiathis_bubble_style{padding:0 3px 0 3px !important;}
 .jiathis_style_32x32 .jiathis_separator{ margin:0 !important;}
 .jiathis_style_32x32 .jtico{
-background: url(http://dt27.qiniudn.com/img/jiathis_ico_32x32.png) no-repeat left !important;
+background: url(../img/jiathis_ico_32x32.png) no-repeat left !important;
 }
 .jiathis_style_32x32 .jtico_tsina{background-position:0px 0px !important;}
 .jiathis_style_32x32 .jtico_qzone{background-position: 0px -32px !important;}
@@ -443,23 +445,23 @@ background: url(http://dt27.qiniudn.com/img/jiathis_ico_32x32.png) no-repeat lef
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url("http://dt27.qiniudn.com/img/glyphicons-halflings.png");
+  background-image: url("../img/glyphicons-halflings.png");
   background-position: 14px 14px;
   background-repeat: no-repeat;
 }
 .popover-inner{color:#000;}
 /* White icons with optional class, or on hover/focus/active states of certain elements */
 .icon-white{
-  background-image: url("http://dt27.qiniudn.com/img/glyphicons-halflings-white.png");
+  background-image: url("../img/glyphicons-halflings-white.png");
 }
 .icon-apple-black{
   height: 17px;
-  background-image: url("http://dt27.qiniudn.com/img/a_black.png");
+  background-image: url("../img/a_black.png");
   background-position:0 0;
 }
 .icon-apple-white{
   height: 17px;
-  background-image: url("http://dt27.qiniudn.com/img/a_white.png");
+  background-image: url("../img/a_white.png");
   background-position:0 0;
 }
 .icon-plus {

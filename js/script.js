@@ -274,7 +274,8 @@ function ChangeType(type){
 	document.getElementById('t7').style.display='none';
 	document.getElementById('t8').style.display='none';
 	document.getElementById('t9').style.display='none';
-	$('.type').css("borderColor","white");
+	document.getElementById('t100').style.display='none';
+	$('.type').css("border","1px solid #DDDDDD");
 	$('.type').css("backgroundColor","white");
 	$('#type'+type).css("borderColor","red");
 	$('#type'+type).css("backgroundColor","red");
@@ -283,7 +284,7 @@ function ChangeType(type){
 			$('#type11').css("borderColor","red");
 			$('#type11').css("backgroundColor","red");
 			document.getElementById('t1').style.display='block';
-			$('#t1').css('background','url(http://dt27.qiniudn.com/img/11bg.jpg) center no-repeat');
+			$('#t1').css('background','url(../img/11bg.jpg) center no-repeat');
 			document.getElementById('bgImgt1').value = "img/11.jpg";
 			break;
 		case 3:
@@ -298,6 +299,7 @@ function ChangeType(type){
 		case 7:
 		case 8:
 		case 9:
+		case 100:
 			document.getElementById('t'+type).style.display='block';
 			document.getElementById('bgImgt1').value = "";
 			document.getElementById('bgImgt3').value = "";
@@ -313,7 +315,7 @@ function ChangeType(type){
 			$('#type1').css("borderColor","red");
 			$('#type1').css("backgroundColor","red");
 			document.getElementById('t1').style.display='block';
-			$('#t1').css('background','url(http://dt27.qiniudn.com/img/'+type+'bg.jpg) center no-repeat');
+			$('#t1').css('background','url(../img/'+type+'bg.jpg) center no-repeat');
 			document.getElementById('bgImgt1').value = "img/"+type+".jpg";
 			break;
 	}
@@ -325,3 +327,6 @@ function getCounter(){
 	setTimeout("getCounter()", 60000);
 }
 getCounter();
+var typeOld = parseInt($('#type').val());
+$('#type').val(11);
+ChangeType(typeOld);

@@ -608,6 +608,7 @@ class showText {
 	var $fontCountryWesten = 'fonts/CountryWesten.ttf';
 	var $fonten = 'fonts/ElegantScript.ttf';
 	var $fontMaobi = 'fonts/ygymbxs.ttf';//毛笔
+	var $fontkatong = 'fonts/katong.ttf';//卡通
 	var $bgpic = 'img/4.jpg';
 	var $color = 1;
 	var $type;
@@ -767,6 +768,14 @@ class showText {
 					$this->text0 = $text0;
 				}
 				break;
+			case 100 :
+				if (isset ($text)) {
+					$this->text = $text;
+				}
+				if (isset ($text0)) {
+					$this->text0 = $text0;
+				}
+				break;
 		}
 	}
 	function show() {
@@ -900,6 +909,27 @@ class showText {
 
 				echo $base->saveImg($image);
 				break;
+			case 100 :
+				$color = ImageColorAllocate($image, 255, 181, 0);
+				imagefilledrectangle($image, 0, 0, 744, 1392, $black); // 图片着色
+				// PNG水印图
+				$imgSrc = "img/!.png";
+				$srcInfo = getimagesize($imgSrc);
+				$srcImg_w = $srcInfo[0];
+				$srcImg_h = $srcInfo[1];
+				$srcim = imagecreatefrompng($imgSrc);
+				imagecopy($image, $srcim, (744 - $srcImg_w) / 2, 430, 0, 0, $srcImg_w, $srcImg_h);
+				$txt = $base->createText($this->text);
+				$txt0 = $base->createText($this->text0);
+				$txtlogo = $base->createText("WARNING");
+				$fbox = imagettfbbox(60, 0, "fonts/StencilStd.otf", $txtlogo);
+				imagettftext($image, 60, 0, (744 - $fbox[2]) / 2, 650, $color, "fonts/StencilStd.otf", $txtlogo);
+				$fbox = imagettfbbox(60, 0, $this->fontkatong, $txt);
+				imagettftext($image, 60, 0, (744 - $fbox[2]) / 2, 820, $color, $this->fontkatong, $txt);
+				$fbox = imagettfbbox(46, 0, $this->fontkatong, $txt0);
+				imagettftext($image, 46, 0, (744 - $fbox[2]) / 2, 930, $color, $this->fontkatong, $txt0);
+				echo $base->saveImg($image);
+				break;
 		}
 	}
 }
@@ -960,6 +990,10 @@ switch ($type) {
 		break;
 	case 9 :
 		$s = new showText($_REQUEST["t90"], $_REQUEST["t91"], $_REQUEST["t92"], 9, null);
+		$s->show();
+		break;
+	case 100 :
+		$s = new showText(null, $_REQUEST["t1001"], $_REQUEST["t1002"], 100, null);
 		$s->show();
 		break;
 	case 1 :
