@@ -21,7 +21,7 @@ $uptypes=array(
 //'image/x-png'
 );
 $max_file_size=5000000;     //上传文件大小限制, 单位BYTE
-$destination_folder="upimg/"; //上传文件路径
+$destination_folder="temp/"; //上传文件路径
 //允许上传的文件类型为:implode(', ',$uptypes)
 $id = $_REQUEST["type"];
 if($id ==11)
@@ -68,15 +68,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	$pinfo=pathinfo($destination);
 	$fname=$pinfo[basename];
 	//计算文件MD5并保存到数据库
-	$filemd5 = md5_file($destination_folder.$fname);
-	$ymd = (int) date("YmdHis");
-	$db=new DB;
-	$dataArray=array(
-     'Name'=>$fname,
-     'Md5'=>$filemd5,
-     'Day'=>$ymd
-    );
-	$db->insert('FileMd5',$dataArray);
+	//$filemd5 = md5_file($destination_folder.$fname);
+	//$ymd = (int) date("YmdHis");
+	//$db=new DB;
+	//$dataArray=array(
+     //'Name'=>$fname,
+    // 'Md5'=>$filemd5,
+     //'Day'=>$ymd
+    //);
+	//$db->insert('FileMd5',$dataArray);
 	echo "<script type=\"text/javascript\" src=\"http://dt27.qiniudn.com/js/plugins.js\"></script>";
 	echo "<script type=\"text/javascript\">parent.document.getElementById('t".$id."').style.background='url(./".$destination_folder.$fname.") center no-repeat';parent.document.getElementById('bgImgt".$id."').value='".$destination_folder.$fname."';parent.$('#fileinput-button-t".$id." span').html('选择图片');parent.$('#fileinput-button-t".$id."').removeAttr('disabled');;</script>";
 }

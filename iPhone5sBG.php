@@ -952,15 +952,6 @@ switch ($type) {
 		$db->insert('FeedBack',$dataArray);
 		unset($db);
 		break;
-	case 999 :
-		$db=new DB;
-		$sql="select * from FileMd5 where Md5 = '".$_REQUEST["md5"]."' LIMIT 1";
-		$row=$db->get_one($sql); 
-		unset($db);
-		if ($row) {
-			echo $row['Name'];
-		}else{exit();}
-		break;
 	case 0 :
 		$base->delImg($_REQUEST["filename"]);
 		break;

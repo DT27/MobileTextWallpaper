@@ -46,21 +46,7 @@ $(function(){
                 loadNext();
             }
             else {
-				//获取图片md5跟服务器已有图片对比
-				var md5 = spark.end();
-				$.get('iPhone5sBG.php?type=999&md5='+md5,function(fname){
-				   if(fname){
-					   var img = new Image();
-						img.src = "upimg/"+fname;
-						$(img).load(function(){
-						   document.getElementById('t1').style.background="url('"+img.src+"')";
-						   document.getElementById('bgImgt1').value=img.src;
-		$('#fileinput-button-t1').removeAttr('disabled');
-							$('#fileinput-button-t1 span').html('选择图片');
-						});
-				   }
-				   else document.forms['form1'].submit();//图片不在服务器上，上传图片。
-				});
+				document.forms['form1'].submit();//上传图片。
             }
         },
         frOnerror = function () {
@@ -98,23 +84,7 @@ $(function(){
                 loadNext();
             }
             else {
-				//获取图片md5跟服务器已有图片对比
-				var md5 = spark.end();
-				$.get('iPhone5sBG.php?type=999&md5='+md5,function(fname){
-				   if(fname){
-					   var img = new Image();
-						img.src = "upimg/"+fname;
-						$(img).load(function(){
-						   document.getElementById('t3').style.background="url('"+img.src+"')";
-						   document.getElementById('bgImgt3').value=img.src;
-		$('#fileinput-button-t3').removeAttr('disabled');
-							$('#fileinput-button-t3 span').html('选择图片');
-						});
-				   }
-				   else{
-					   document.forms['form1'].submit();//图片不在服务器上，上传图片。
-					}
-				});
+				document.forms['form1'].submit();//上传图片。
             }
         },
         frOnerror = function () {
