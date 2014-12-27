@@ -141,7 +141,6 @@ $(function(){
 	var result = $('#resultImg');;
 	$('#myModal').on('show.bs.modal', function (e) {
 		$('#loadInfo').html("文字壁纸生成中···");
-		_czc.push(["_trackEvent", "样式", "生成", $('#type').val()]);
 		$.ajax({
 			url:'./iPhone5sBG.php',
 			type:'POST',
@@ -233,7 +232,6 @@ function CurentTime()
 
 function ChangeType(type){
 	if($('#type').val()==type)return;
-	_czc.push(["_trackEvent", "样式", "选择", type]);
 	$('#font').val(0);
 	$('#type').val(type);
 	document.getElementById('t1').style.display='none';

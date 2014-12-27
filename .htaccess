@@ -1,0 +1,8 @@
+<Files ~ "^\.(htaccess|htpasswd)$">
+deny from all
+</Files>
+RewriteEngine on
+RewriteBase /
+
+RewriteCond %{HTTP_HOST} !^(www\.mobiletextwallpaper\.com)(:80)? [NC]
+RewriteRule ^(.*) http://www.mobiletextwallpaper.com/ [R=301,L]
