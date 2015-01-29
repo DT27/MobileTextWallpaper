@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
      //'Day'=>$ymd
     //);
 	//$db->insert('FileMd5',$dataArray);
-	echo "<script type=\"text/javascript\" src=\"http://dt27.qiniudn.com/js/plugins.js\"></script>";
+	echo "<script type=\"text/javascript\" src=\"js/plugins.js\"></script>";
 	echo "<script type=\"text/javascript\">parent.document.getElementById('t".$id."').style.background='url(./".$destination_folder.$fname.") center no-repeat';parent.document.getElementById('bgImgt".$id."').value='".$destination_folder.$fname."';parent.$('#fileinput-button-t".$id." span').html('选择图片');parent.$('#fileinput-button-t".$id."').removeAttr('disabled');;</script>";
 }
 ?>

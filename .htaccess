@@ -4,5 +4,5 @@ deny from all
 RewriteEngine on
 RewriteBase /
 
-RewriteCond %{HTTP_HOST} !^(www\.mobiletextwallpaper\.com)(:80)? [NC]
-RewriteRule ^(.*) http://www.mobiletextwallpaper.com/ [R=301,L]
+#RewriteCond %{HTTP_HOST} !^(z\.dt27\.cn)(:80)? [NC]
+#RewriteRule ^(.*) http://z.dt27.cn/ [R=301,L]
