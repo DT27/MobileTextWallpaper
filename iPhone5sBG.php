@@ -879,10 +879,9 @@ class showText {
 				$txt = $base->createText($this->text);
 				$txt0 = $base->createText($this->text0);
 				$txt1 = $base->createText($this->text1);
-				//判断是否有中文
 				if (!preg_match("/[\x7f-\xff]/", $this->text1)) {
 					$fbox = imagettfbbox(60, 0, $this->fontCountryWesten, $txt1); // (744-$fbox[2])/2
-					imagettftext($image, 60, 0, (744 - $fbox[2]) / 2, 563, $white, $this->fontCountryWesten, $txt1);
+					imagettftext($image, 60, 0, (744 - $fbox[2]) / 2, 563, $black, $this->fontCountryWesten, $txt1);
 				} else {
 					$fbox = imagettfbbox(30, 0, $this->fontwryh, $txt1); // (744-$fbox[2])/2
 					imagettftext($image, 30, 0, (744 - $fbox[2]) / 2, 563, $black, $this->fontwryh, $txt1);
