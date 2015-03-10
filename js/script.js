@@ -150,8 +150,8 @@ $(function(){
 				var img = new Image();
 				img.src = src;
 				$(img).load(function(){
-					result=$("<img id=\"resultImg\" src=\""+src+"\" width=\"100%\" />");
-					$('#loadInfo').slideUp('fast').html("手机浏览器长按图片保存 <br /> 若无法保存，请使用自带safari浏览器").slideDown('fast');
+					result=$("<a href=\""+src+"\" target=\"_blank\"><img id=\"resultImg\" src=\""+src+"\" width=\"100%\" \/><\/a>");
+					$('#loadInfo').slideUp('fast').html("手机浏览器长按或点击图片保存 <br /> 若无法保存，请使用自带safari浏览器").slideDown('fast');
 					loading.hide();
         			loading.after(result);
 				});
@@ -243,6 +243,7 @@ function ChangeType(type){
 	document.getElementById('t8').style.display='none';
 	document.getElementById('t9').style.display='none';
 	document.getElementById('t100').style.display='none';
+    document.getElementById('t101').style.display='none';
 	$('.type').css("border","1px solid #DDDDDD");
 	$('.type').css("backgroundColor","white");
 	$('#type'+type).css("borderColor","red");
@@ -261,6 +262,12 @@ function ChangeType(type){
 			document.getElementById('bgImgt1').value = "";
 			document.getElementById('bgImgt3').value = "";
 			break;
+        case 101:
+            $('#font').val(1);
+            document.getElementById('t'+type).style.display='block';
+            document.getElementById('bgImgt1').value = "";
+            document.getElementById('bgImgt3').value = "";
+            break;
 		case 4:
 		case 5:
 		case 6:

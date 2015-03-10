@@ -603,14 +603,15 @@ class showText {
 	var $fontshouxie = 'fonts/jybxs.ttf';
 	var $fontName = 'fonts/jdchj.ttf';
 	var $font6 = 'fonts/jdzy.ttf';
-	var $font8 = 'fonts/fzxkgbk.ttf'; //方正行楷_GBK
+	//var $font8 = 'fonts/fzxkgbk.ttf'; //方正行楷_GBK
+    var $font8 = 'fonts/yzxs.ttf'; //有则行书
 	var $fontwryh = 'fonts/wryh.ttf';
 	var $fontCountryWesten = 'fonts/CountryWesten.ttf';
 	var $fonten = 'fonts/ElegantScript.ttf';
 	var $fontMaobi = 'fonts/ygymbxs.ttf';//毛笔
 	var $fontkatong = 'fonts/katong.ttf';//卡通
 	var $bgpic = 'img/4.jpg';
-	var $color = 1;
+	//var $color = 1;
 	var $type;
 	var $sex;
 	var $showX = 192; // +52
@@ -618,10 +619,21 @@ class showText {
 	var $text0;
 	var $showX0 = 140;
 	var $showY0 = 958;
-	function __construct($text1, $text, $text0, $type, $sex) {
+	function __construct($text1, $text, $text0, $type, $sex, $fontName, $color) {
 		if (isset ($sex)) {
 			$this->sex = $sex;
 		}
+
+        if (isset ($color)) {
+            $this->color = $color;
+        }
+        if (isset ($fontName)) {
+            if ($fontName == 0) {
+                $this->fontName = 'fonts/wryh.ttf';
+            }else if($fontName == 1) {
+                $this->fontName = 'fonts/yzxs.ttf';
+            }
+        }
 		$this->type = $type;
 		switch ($type) {
 			case 4 :
@@ -776,6 +788,17 @@ class showText {
 					$this->text0 = $text0;
 				}
 				break;
+            case 101 :
+                $this->bgpic = "img/101.jpg";
+                if (isset ($text)) {
+                    $this->text = $text;
+                }
+                if (isset ($text0)) {
+                    $this->text0 = $text0;
+                }
+
+                $this->nameSize = 36;
+                break;
 		}
 	}
 	function show() {
@@ -929,6 +952,18 @@ class showText {
 				imagettftext($image, 46, 0, (744 - $fbox[2]) / 2, 930, $color, $this->fontkatong, $txt0);
 				echo $base->saveImg($image);
 				break;
+            case 101 :
+                $image = imagecreatefromjpeg($this->bgpic);
+                $txt = $base->createText($this->text);
+
+
+                // 背景颜色
+                $colors = $base->hex2rgb($this->color);
+                $txtColor = ImageColorAllocate($image, $colors['r'], $colors['g'], $colors['b']);
+                $fbox = imagettfbbox(68, 0, $this->fontName, $txt);
+                imagettftext($image, 68, 0, (320 - $fbox[2]) / 2 + 370, 620, $txtColor, $this->fontName, $txt);
+                echo $base->saveImg($image);
+                break;
 		}
 	}
 }
@@ -970,33 +1005,37 @@ switch ($type) {
 		$s->show();
 		break;
 	case 4 :
-		$s = new showText(null, $_REQUEST["t41"], $_REQUEST["t42"], 4, null);
+		$s = new showText(null, $_REQUEST["t41"], $_REQUEST["t42"], 4, null, null, null);
 		$s->show();
 		break;
 	case 5 :
-		$s = new showText(null, $_REQUEST["t51"], $_REQUEST["t52"], 5, $_REQUEST["sex"]);
+		$s = new showText(null, $_REQUEST["t51"], $_REQUEST["t52"], 5, $_REQUEST["sex"], null, null);
 		$s->show();
 		break;
 	case 6 :
-		$s = new showText(null, $_REQUEST["t6"], null, 6, $_REQUEST["sex6"]);
+		$s = new showText(null, $_REQUEST["t6"], null, 6, $_REQUEST["sex6"], null, null);
 		$s->show();
 		break;
 	case 7 :
-		$s = new showText(null, $_REQUEST["t71"], $_REQUEST["t72"], 7, null);
+		$s = new showText(null, $_REQUEST["t71"], $_REQUEST["t72"], 7, null, null, null);
 		$s->show();
 		break;
 	case 8 :
-		$s = new showText($_REQUEST["t80"], $_REQUEST["t81"], $_REQUEST["t82"], 8, null);
+		$s = new showText($_REQUEST["t80"], $_REQUEST["t81"], $_REQUEST["t82"], 8, null, null, null);
 		$s->show();
 		break;
 	case 9 :
-		$s = new showText($_REQUEST["t90"], $_REQUEST["t91"], $_REQUEST["t92"], 9, null);
+		$s = new showText($_REQUEST["t90"], $_REQUEST["t91"], $_REQUEST["t92"], 9, null, null, null);
 		$s->show();
 		break;
 	case 100 :
-		$s = new showText(null, $_REQUEST["t1001"], $_REQUEST["t1002"], 100, null);
+		$s = new showText(null, $_REQUEST["t1001"], $_REQUEST["t1002"], 100, null, null, null);
 		$s->show();
 		break;
+    case 101 :
+        $s = new showText(null, $_REQUEST["t101"], null, 101, null, $_REQUEST["font"], $_REQUEST["colorTText101"]);
+        $s->show();
+        break;
 	case 1 :
 	case 10 :
 	case 11 :

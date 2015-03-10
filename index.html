@@ -16,19 +16,28 @@
         <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72.png" />
         <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-144.png" />
 		<script type="text/javascript">
-			if(document.location!="http://z.dt27.cn/")
-				window.location.href="http://z.dt27.cn/";
+			if(document.location!="http://www.mobiletextwallpaper.com/")
+				window.location.href="http://www.mobiletextwallpaper.com/";
 		</script>
 		<script type="text/javascript" src="js/head.load.min.js"></script>
 		<script>
+
 			if(head.mobile) document.title='文字壁纸';//手机浏览器改为短标题以便适应收藏显示
 			head.load("js/plugins.js",function() {
 				head.load("js/script.js");
+				/*
+				head.load("http://youjb.com/valentineDay/valentineDay.js",
+				function() {
+				        var a = new WR_EFFECT_OBJ.petalFloat; //主题 petalFloat glimFloat
+				        a.maskFlag = 1;
+				        a.material = "rose2"; //主题petalFloat可选样式 rose:红玫瑰 carnation:粉玫瑰 rose2:红玫瑰+粉玫瑰 herb:三叶草
+				        a.start(5, 20); //参数1：花瓣密度 参数2：持续时间(秒)
+				});
+				*/
 			});
 		</script>
 		<link rel="stylesheet" type="text/css" href="css/plugins.css"/>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
-        <script type="text/javascript" name="baidu-tc-cerfication" src="http://apps.bdimg.com/cloudaapi/lightapp.js#2d90f60b6ec180c88e4d283188fc783f"></script><script type="text/javascript">window.bd && bd._qdc && bd._qdc.init({app_id: 'be1f9ce3fbe2fe2998d9aac4'});</script>
 	</head>
 
 	<body>
@@ -69,6 +78,7 @@
   </div>
   <div class="panel-body" id="chooseType">
                     <div id="scrollable" data-scrollable="x">
+                        <img src="img/p101.jpg" alt="样式101" class="img-thumbnail type" id="type101" onclick="ChangeType(101);">
                         <img src="img/p2.jpg" alt="样式2" class="img-thumbnail type" id="type1" onclick="ChangeType(1);">
                         <img src="img/p3.jpg" alt="样式1" class="img-thumbnail type" id="type3" onclick="ChangeType(3);">
                         <img src="img/p4.jpg" alt="样式3" class="img-thumbnail type" id="type4" onclick="ChangeType(4);">
@@ -83,6 +93,15 @@
 </div>
 				
 			</div>
+            <div class="container" id="t101">
+                <div class="alert alert-info" id="colorText101">文字颜色：<span class="input-group-addon">#</span><input type="text" class="input-sm iColorPicker " id="colorPickerTText101" name="colorTText101" value="fff" maxlength="6" onclick="iColorShow('colorPickerTText101','icp_colorPickerTText101')"><br>
+                    字体：<div class="btn-group btn-group-sm" id="fontGroupt101">
+                        <button type="button" class="btn btn-default" onclick="$('#font').val(0);$('#fontGroupt101 button').removeClass('active');$(this).addClass('active');">雅黑</button>
+                        <button type="button" class="btn btn-default active" onclick="$('#font').val(1);$('#fontGroupt101 button').removeClass('active');$(this).addClass('active');">手写体</button></div>
+                </div>
+                <input type="text" name="t101" class="form-control" placeholder="" value="静静" />
+            </div>
+            <!-- /container t101 -->
 			<div class="container" id="t1">
             <!-- <p class="alert-danger">此样式升级改进中，暂时无法正常使用<br />
             预计完成时间：2014-3-6 20:15:00</p>-->
@@ -313,13 +332,7 @@
         <div class="container" id="xh">
         
         </div>
-        <div class="alert alert-info" style="padding-left: 0; padding-right:0;">⬇️以下为广告，麻烦随手点下支持我^^
-         <script type="text/javascript">
-    /*20:5 创建于 2014-12-30*/
-    var cpro_id = "u1883521";
-</script>
-<script src="http://cpro.baidustatic.com/cpro/ui/cm.js" type="text/javascript"></script>
-⬆️以上为广告，麻烦随手点下支持我^^</div>
+        <div class="alert alert-info" style="padding-left: 0; padding-right:0; display: none;"></div>
 			<div class="container" id="bottom">
 				<input type="hidden" name="type" id="type" value="11" />
                 <button type="button" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#myModal" id="create">☞ 生成 </button>
@@ -410,10 +423,6 @@
 			};
 		</script>
 		<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=895611" charset="utf-8"></script>
-		<script type="text/javascript">
-			var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-			document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F1fc6238dd19df63d260cad44c1656a3f' type='text/javascript'%3E%3C/script%3E"));
-		</script>
 		<div style="display:none;"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_5811191'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/stat.php%3Fid%3D5811191' type='text/javascript'%3E%3C/script%3E"));</script></div>
 	</body>
 </html>
