@@ -167,29 +167,6 @@ $(function(){
 			type:'GET'
 		});
 	});
-	/* 问题反馈 */
-	$('#issuesCreate').click(function () {
-		head.load("http://pv.sohu.com/cityjson?ie=utf-8",function() {
-			$.ajax({
-				url:'./iPhone5sBG.php',
-				type:'POST',
-				data:{
-					type:1000,
-					title:$('#issuesTitle').val(),
-					content:$('#issuesContent').val(),
-					mail:$('#issuesMail').val(),
-					ip:returnCitySN['cip'],
-					browser:head.browser.name+'_'+head.browser.version
-				},
-				success:function(){
-					$('#issuesModal').modal('hide');
-					$('#bugSuccess').modal('show');
-					setTimeout("$('#bugSuccess').modal('hide')",1500);
-				}
-			});
-		
-		});
-	});
 });
 function GetRandomNum(Min,Max)
 {

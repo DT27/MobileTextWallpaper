@@ -5,7 +5,7 @@
         <meta http-equiv="Cache-Control" content="no-transform" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<title>手机文字壁纸</title>
+		<title>手机文字壁纸 - DIY你的手机壁纸</title>
 		<meta name="keywords" content="文字壁纸,手机文字壁纸,手机控文字壁纸,手机文字壁纸生成"/>
 		<meta name="description" content="给喜欢的壁纸加上个性文字，励志名言，表达爱意，展示心情，想写什么就写什么的文字控神器！希望大家都能够拥有自己喜欢的个性文字壁纸~~~" />
 		<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" />
@@ -56,7 +56,7 @@
     <ul class="nav navbar-nav navbar-right">
         <li><a href="javascript:;" data-toggle="modal" data-target="#mySmallModal5s">iPhone5s壁纸尺寸说明</a></li>
         <li><a href="http://tieba.baidu.com/p/2862988715" target="_blank" rel="nofollow">贴吧互动</a></li>
-        <li><a href="javascript:;" onClick="$('#issuesModal').modal('show');">问题反馈</a></li>
+        <li><a href="javascript:;" onClick="show_box();">问题反馈</a></li>
         <li><a href="http://youjb.com/" target="_blank">免费图床</a></li>
     </ul>
   </div>
@@ -351,37 +351,6 @@
 				</div>
 			</div>
 		</div>
-        <!-- 反馈 Start -->
-		<div class="modal fade bs-example-modal-lg" id="issuesModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-lg">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-						<h4 class="modal-title">问题反馈</h4>
-					</div>
-					<div class="modal-body"><div class="form-group">
-							<label for="issuesTitle">标题（必填）</label>
-							<input type="text" class="form-control" name="issuesTitle" id="issuesTitle" autocomplete="off" autofocus /></div><div class="form-group">
-							<label for="issuesContent">描述（选填，复杂问题请详细描述）</label>
-							<textarea class="form-control" rows="4" name="issuesContent" id="issuesContent"></textarea>
-                            </div><div class="form-group">
-                            <label for="issuesMail">邮箱（选填，方便回复您）</label>
-                            <input type="email" class="form-control" placeholder="email@example.com" name="issuesMail" id="issuesMail" autocomplete="on" /></div><div class="form-group">
-							<button type="button" id="issuesCreate" class="btn btn-primary">提交问题</button>
-							<button type="button" class="btn btn-default" data-dismiss="modal">取消</button></div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="modal fade bs-example-modal-sm" id="bugSuccess" style="display: none;">
-			<div class="modal-dialog modal-sm">
-				<div class="modal-content">
-					<div class="modal-header"></div>
-					<div class="modal-body alert">
-						提交成功！</div></div>
-			</div>
-		</div>
-		<!-- 反馈 End -->
         <!-- Small modal -->
 <div class="modal fade" id="mySmallModal5s">
   <div class="modal-dialog">
@@ -412,6 +381,18 @@
 		<p class="alert alert-info pay"><a href="http://item.taobao.com/item.htm?id=43719429003" target="_blank"> 赞助 </a>支持本服务</p>
 		</div>
 		<div id="counter" align="center"></div><br>
+    <script type="text/javascript">
+        var DROPBOX={
+            tab_color:"#102129",
+            tab_position:"right",
+            tab_title:"反馈问题",dropbox_url:"//issues.kf5.com/dropbox"
+        };
+    </script>
+    <script type="text/javascript" src="//assets.kf5.com/application/js/kf5_tab.js"></script>
+    <style type="text/css" media="screen">
+        @import url(//assets.kf5.com/application/css/kf5_box.css);
+        #kf5_tab{display: none;}
+    </style>
         <script type="text/javascript">
 			var jiathis_config={
 				data_track_clickback:false,

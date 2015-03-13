@@ -973,19 +973,6 @@ $type = $_REQUEST["type"];
 $base = new base();
 
 switch ($type) {
-	case 1000 :
-	//问题反馈
-		$db=new DB;
-		$dataArray=array(
-		 'Title'=>$_REQUEST["title"],
-		 'Content'=>$_REQUEST["content"],
-		 'IP'=>$_REQUEST["ip"],
-		 'Mail'=>$_REQUEST["mail"],
-		 'Browser'=>$_REQUEST["browser"]
-		);
-		$db->insert('FeedBack',$dataArray);
-		unset($db);
-		break;
 	/**
 	case 999 :
 		$db=new DB;
